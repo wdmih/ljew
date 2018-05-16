@@ -3,35 +3,33 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'Lesia`s Jewerly',
+    title: 'lesia',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
   /*
-  ** Global CSS
+  ** Customize the progress bar color
   */
-  css: ['~/assets/css/style.css'],
+  loading: { color: '#3B8070' },
+
+  modules: [
+    ['storyblok-nuxt', {accessToken: 'aqGFI6G8ymQp0mfUxIAkJQtt', cacheProvider: 'memory'}]
+  ],
   /*
-  ** Plugins
-  */
-  plugins: [{ src: '~plugins/vue-carousel', ssr: false }],
-  /*
-  ** Add axios globally
+  ** Build configuration
   */
   build: {
-    vendor: ['axios'],
     /*
-    ** Run ESLINT on save
+    ** Run ESLint on save
     */
-    extend (config, ctx) {
-      if (ctx.isClient) {
+    extend (config, { isDev, isClient }) {
+      if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,

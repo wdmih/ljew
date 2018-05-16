@@ -1,34 +1,26 @@
 {
   "name": "lesia",
   "version": "1.0.0",
-  "description": "lesia jew nuxt",
+  "description": "Nuxt.js project",
   "author": "Wadym_IH <glutter@live.ru>",
   "private": true,
   "scripts": {
-    "dev": "backpack dev",
-    "build": "nuxt build && backpack build",
-    "start": "cross-env NODE_ENV=production node build/main.js",
-    "precommit": "npm run lint",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
   },
   "dependencies": {
-    "axios": "^0.16.2",
-    "cross-env": "^5.0.1",
-    "express": "^4.15.3",
-    "nuxt": "^1.0.0-rc3",
-    "source-map-support": "^0.4.15",
-    "vue-carousel": "^0.6.14"
+    "nuxt": "^1.0.0",
+    "storyblok-nuxt": "0.0.3"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "backpack-core": "^0.4.1",
-    "eslint": "^4.3.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-loader": "^1.9.0",
-    "eslint-plugin-html": "^3.1.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.15.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-vue": "^4.0.0"
   }
 }
