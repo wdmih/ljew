@@ -1,5 +1,5 @@
 <template>
-  <h1>{{products}}</h1>
+  <h1>catalog</h1>
 </template>
 
 <script>
