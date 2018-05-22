@@ -15,21 +15,5 @@
 </template>
 
 <style lang="scss">
-@import '../assets/scss/vars';
 
-  .footer {
-    height: 110px;
-    display: flex;
-    background: $c_main-black;
-    color: #fff;
-    padding: 0 20px 0 60px;
-    justify-content: space-between;
-    flex: 0 0 auto;
-
-    .main-nav {
-      ul {
-        margin-right: 105px;
-      }
-    }
-  }
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <section class="page-container">
     <h1>index</h1>
     <nuxt-link to='/catalog'>catalog</nuxt-link>
-  </div>
+  </section>
 </template>
 
 <script>

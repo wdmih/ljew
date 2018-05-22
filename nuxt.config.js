@@ -27,6 +27,27 @@ module.exports = {
   */
   build: {
     /*
+    ** PostCSS plugins config
+    */
+    postcss: [
+      require('autoprefixer')({
+        browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4']
+      }),
+      require('cssnano')({
+        preset: 'default',
+      }),
+      require('postcss-pxtorem')({
+        rootValue: 14,
+        unitPrecision: 5,
+        propList: ['font', 'font-size', 'line-height', 'letter-spacing'],
+        selectorBlackList: [],
+        replace: true,
+        mediaQuery: false,
+        minPixelValue: 0
+      })
+    ],
+
+    /*
     ** Run ESLint on save
     */
     extend (config, { isDev, isClient }) {

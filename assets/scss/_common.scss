@@ -1,0 +1,62 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  color: $c_main-black;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body {
+  width: 1366px;
+  margin: 0 auto;
+}
+#__nuxt,
+#__layout,
+#app {
+  height: 100%;
+}
+#app {
+  display: flex;
+  flex-direction: column;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.padded {
+  padding: 0 60px;
+}
+
+.page-container {
+  flex: 1 0 auto;
+}
+
+.page-title {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 5.76px;
+  padding-top: 30px;
+  margin-bottom: 30px;
+}
+
+.products-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+
