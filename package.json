@@ -14,7 +14,9 @@
   },
   "dependencies": {
     "nuxt": "^1.0.0",
-    "storyblok-nuxt": "0.0.3"
+    "storyblok-nuxt": "0.0.3",
+    "vue-agile": "^0.3.7",
+    "vue-clickaway": "^2.2.2"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

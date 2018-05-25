@@ -1,11 +1,13 @@
 <template>
   <section class="page-container text-center">
     <div class="page-title">
-      <h2>каталог</h2>
+      <h3>каталог</h3>
     </div>
     <div class="filter-container text-center">
-      <dropdown :title="'категории'" :options="options">
-      </dropdown>
+      <span class="filter-title">фильтр:</span>
+      <dropdown :title="'Категория:'" :options="categoriesArr"></dropdown>
+      <dropdown :title="'Металл:'" :options="metalsArr"></dropdown>
+      <dropdown :title="'Вставки:'" :options="addsArr"></dropdown>
     </div>
     <div class="products-container padded">
       <Product
@@ -41,9 +43,25 @@ export default {
   },
   data() {
     return {
-      options:[1,2,3,4,5,6,7]
-      }
+      categoriesArr:[
+        'Все',
+        'Кольца',
+        'Серьги',
+        'Браслеты'
+      ],
+      metalsArr : [
+        'Все',
+        'Золото',
+        'Серебро'
+      ],
+      addsArr: [
+        'Все',
+        'Без вставок',
+        'Фианиты',
+        'Стекло'
+      ]
     }
+  }
   // methods: {
   //   methodToRunOnSelect(payload) {
   //     this.object = payload;

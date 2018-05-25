@@ -22,10 +22,15 @@ module.exports = {
   modules: [
     ['storyblok-nuxt', {accessToken: 'aqGFI6G8ymQp0mfUxIAkJQtt', cacheProvider: 'memory'}]
   ],
+
+  plugins: [
+    { src: '~/plugins/agile.js', ssr: false }
+  ],
   /*
   ** Build configuration
   */
   build: {
+    vendor: ['vue-agile'],
     /*
     ** PostCSS plugins config
     */

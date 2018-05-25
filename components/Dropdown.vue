@@ -1,18 +1,25 @@
 <template>
   <div class="filter-item">
-    <span class="filter-item__title" @click="toggleDd()">{{title}}</span>
-    <span class="filter-item__current-option" @click="toggleDd()">
-      {{selected}}
-    </span>
-    <i :class="showDd ? 'icon-angle-up' : 'icon-angle-down'"></i>
-    <ul class="filter-item__options" v-if="showDd">
-      <li v-for="(item, index) in options" :key="index" @click="updateSelected(item)">{{item}}</li>
-    </ul>
+    <div @click="toggleDd()" v-on-clickaway="close">
+      <span class="filter-item__title">{{title}}</span>
+      <span class="filter-item__current-option">
+        {{selected ? selected : options[0]}}
+      </span>
+      <i :class="showDd ? 'icon-angle-up' : 'icon-angle-down'"></i>
+    </div>
+    <transition>
+      <ul class="filter-item__options" v-if="showDd">
+        <li v-for="(item, index) in options" :key="index" @click="updateSelected(item)">{{item}}</li>
+      </ul>
+    </transition>
   </div>
 </template>
 
 <script>
+import { mixin as clickaway } from 'vue-clickaway'
+
 export default {
+  mixins: [clickaway],
   props: {
     title: {
       type: String,
@@ -29,10 +36,6 @@ export default {
       selected: ''
     }
   },
-  mounted () {
-    // this.arrayOptions = options
-    // this.selected = this.arrayOptions[0]
-  },
   methods: {
     updateSelected(item) {
       this.selected = item
@@ -40,11 +43,14 @@ export default {
     },
     toggleDd() {
       this.showDd = !this.showDd
+    },
+    close () {
+      this.showDd = false
     }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 
 </style>
