@@ -20,6 +20,7 @@ module.exports = {
   loading: { color: '#3B8070' },
 
   modules: [
+    "@nuxtjs/axios",
     ['storyblok-nuxt', {accessToken: 'aqGFI6G8ymQp0mfUxIAkJQtt', cacheProvider: 'memory'}]
   ],
 
