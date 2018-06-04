@@ -63,6 +63,11 @@ ul {
   justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 100px;
+
+  &-inner {
+    flex-basis: 980px;
+    position: relative;
+  }
 }
 
 .scroll-down-container {
@@ -138,4 +143,16 @@ ul {
   line-height: 1;
   letter-spacing: 3.52px;
   text-transform: uppercase;
+}
+
+.section-title-container {
+  flex-basis: 266px;
+  align-self: center;
+}
+
+.section-title {
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 3.52px;
 }

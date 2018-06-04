@@ -20,18 +20,20 @@ module.exports = {
   loading: { color: '#3B8070' },
 
   modules: [
-    "@nuxtjs/axios",
     ['storyblok-nuxt', {accessToken: 'aqGFI6G8ymQp0mfUxIAkJQtt', cacheProvider: 'memory'}]
   ],
 
   plugins: [
-    { src: '~/plugins/agile.js', ssr: false }
+    { src: '~/plugins/vue-swiper.js', ssr: false },
+  ],
+  css: [
+    'swiper/dist/css/swiper.css'
   ],
   /*
   ** Build configuration
   */
   build: {
-    vendor: ['vue-agile'],
+
     /*
     ** PostCSS plugins config
     */

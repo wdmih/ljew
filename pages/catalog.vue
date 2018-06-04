@@ -23,43 +23,22 @@
 </template>
 
 <script>
-import Product from '@/components/Product'
-import Dropdown from '@/components/Dropdown'
+import Product from "@/components/Product"
+import Dropdown from "@/components/Dropdown"
+
+import { mapState } from "vuex"
 
 export default {
-  asyncData(context) {
-    return context.app.$storyapi.get('cdn/stories', {
-      version: 'draft',  // only for development
-      starts_with: 'catalog/'
-    }).then(res => {
-      return {
-        products: res.data.stories
-      }
-    })
-  },
   components: {
     Product,
     Dropdown
   },
+  computed: mapState(["products"]),
   data() {
     return {
-      categoriesArr:[
-        'Все',
-        'Кольца',
-        'Серьги',
-        'Браслеты'
-      ],
-      metalsArr : [
-        'Все',
-        'Золото',
-        'Серебро'
-      ],
-      addsArr: [
-        'Все',
-        'Без вставок',
-        'Фианиты',
-        'Стекло'
-      ]
+      categoriesArr: ["Все", "Кольца", "Серьги", "Браслеты"],
+      metalsArr: ["Все", "Золото", "Серебро"],
+      addsArr: ["Все", "Без вставок", "Фианиты", "Стекло"]
     }
   }
   // methods: {
@@ -71,5 +50,4 @@ export default {
 </script>
 
 <style>
-
 </style>

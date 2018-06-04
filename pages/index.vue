@@ -1,19 +1,12 @@
 <template>
   <section class="page-container">
-    <div class="hero-container">
-      <agile class="hero-slider" :options="options">
-        <div class="hero-slider__item">
-          <img src="/3.jpg" width="1306" height="539" alt="#">
-        </div>
-        <div class="hero-slider__item">
-          <img src="/2.jpg" width="1306" height="539" alt="#">
-        </div>
-      </agile>
-    </div>
+    <HeroSlider/>
     <div class="scroll-down-container">
-      <a href="#"><i class="icon-angle-double-down"></i></a>
+      <a href="#">
+        <i class="icon-angle-double-down"></i>
+      </a>
     </div>
-    <div class="top-categories-container padded">
+    <section class="top-categories-container padded">
       <div class="top_categories__item" style="background-image: url('./c1.jpg')">
         <span class="top-categories__title">кольца</span>
       </div>
@@ -28,27 +21,65 @@
           <span class="top-categories__title">кольца</span>
         </div>
       </div>
-    </div>
+    </section>
+    <section class="products-container products-container--home padded">
+      <div class="section-title-container">
+        <span class="section-title">Новинки</span>
+      </div>
+      <div class="products-container-inner" v-swiper:productSwiper="productSwiperOption">
+        <div class="products-slider swiper-wrapper">
+          <Product
+            class="swiper-slide"
+            v-for="(product, index) in products"
+            :key="index"
+            :src="product.content.image"
+            :slug="product.slug"
+            :title="product.name"
+            :id="product.id">
+          </Product>
+        </div>
+        <div class="swiper-controls">
+          <div class="swiper-button product-swiper-button-prev" >
+            <i class="icon-angle-left"></i>
+          </div>
+          <div class="swiper-button product-swiper-button-next">
+            <i class="icon-angle-right"></i>
+          </div>
+          <div class="product-swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
   </section>
 </template>
 
 <script>
+import HeroSlider from "@/components/HeroSlider"
+import Product from "@/components/Product"
+
+import { mapState } from "vuex"
 
 export default {
   components: {
-
+    HeroSlider,
+    Product
   },
-  data () {
+  computed: mapState(["products"]),
+  data() {
     return {
-      options: {
-        arrows: true,
-        dots: true,
-        infinite: true,
-        timing: 'ease-in-out',
-        speed: 900,
-        autoplay: false,
-        prevArrow: '<i class="icon-angle-left"></i>',
-        nextArrow: '<i class="icon-angle-right"></i>'
+      productSwiperOption: {
+        speed: 750,
+        loop: true,
+        slidesPerView: 4,
+        spaceBetween: 20,
+        pagination: {
+          el: ".product-swiper-pagination",
+          clickable: true,
+          modifierClass: "swiper-pagination-custom-"
+        },
+        navigation: {
+          nextEl: ".product-swiper-button-next",
+          prevEl: ".product-swiper-button-prev"
+        }
       }
     }
   }
@@ -56,5 +87,4 @@ export default {
 </script>
 
 <style lang="scss">
-
 </style>
