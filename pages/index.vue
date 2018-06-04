@@ -26,27 +26,29 @@
       <div class="section-title-container">
         <span class="section-title">Новинки</span>
       </div>
-      <div class="products-container-inner" v-swiper:productSwiper="productSwiperOption">
-        <div class="products-slider swiper-wrapper">
-          <Product
-            class="swiper-slide"
-            v-for="(product, index) in products"
-            :key="index"
-            :src="product.content.image"
-            :slug="product.slug"
-            :title="product.name"
-            :id="product.id">
-          </Product>
-        </div>
-        <div class="swiper-controls">
-          <div class="swiper-button product-swiper-button-prev" >
-            <i class="icon-angle-left"></i>
+      <div class="product-slider-container">
+          <div class="product-slider-outer" v-swiper:productSwiper="productSwiperOption">
+            <div class="product-slider swiper-wrapper">
+              <Product
+                class="swiper-slide"
+                v-for="(product, index) in products"
+                :key="index"
+                :src="product.content.image"
+                :slug="product.slug"
+                :title="product.name"
+                :id="product.id">
+              </Product>
+            </div>
           </div>
-          <div class="swiper-button product-swiper-button-next">
-            <i class="icon-angle-right"></i>
+          <div class="product-slider-controls">
+            <div class="swiper-button product-swiper-button-prev" >
+              <i class="icon-angle-left"></i>
+            </div>
+            <div class="swiper-button product-swiper-button-next">
+              <i class="icon-angle-right"></i>
+            </div>
+            <div class="product-swiper-pagination"></div>
           </div>
-          <div class="product-swiper-pagination"></div>
-        </div>
       </div>
     </section>
   </section>
@@ -68,17 +70,16 @@ export default {
     return {
       productSwiperOption: {
         speed: 750,
-        loop: true,
+        loop: false,
         slidesPerView: 4,
         spaceBetween: 20,
         pagination: {
-          el: ".product-swiper-pagination",
+          el: '.product-swiper-pagination',
           clickable: true,
-          modifierClass: "swiper-pagination-custom-"
         },
         navigation: {
-          nextEl: ".product-swiper-button-next",
-          prevEl: ".product-swiper-button-prev"
+          nextEl: '.product-swiper-button-next',
+          prevEl: '.product-swiper-button-prev'
         }
       }
     }

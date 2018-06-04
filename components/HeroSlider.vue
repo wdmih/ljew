@@ -9,11 +9,11 @@
           <img src="/2.jpg" width="1306" height="539" alt="#">
         </div>
       </div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button swiper-button-prev" >
+      <div class="hero-swiper-pagination"></div>
+      <div class="swiper-button hero-swiper-button-prev" >
         <i class="icon-angle-left"></i>
       </div>
-      <div class="swiper-button swiper-button-next">
+      <div class="swiper-button hero-swiper-button-next">
         <i class="icon-angle-right"></i>
       </div>
     </div>
@@ -29,13 +29,13 @@
           effect: 'fade',
           loop: true,
           pagination: {
-            el: '.swiper-pagination',
+            el: '.hero-swiper-pagination',
             clickable: true,
             modifierClass: 'swiper-pagination-custom-'
           },
           navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
+            nextEl: '.hero-swiper-button-next',
+            prevEl: '.hero-swiper-button-prev'
           }
         }
       }

@@ -1,7 +1,7 @@
 <template>
   <section class="page-container text-center">
     <div class="page-title">
-      <h3>каталог</h3>
+      <h3>{{page.title}}</h3>
     </div>
     <div class="filter-container text-center">
       <span class="filter-title">фильтр:</span>
@@ -36,6 +36,9 @@ export default {
   computed: mapState(["products"]),
   data() {
     return {
+      page: {
+        title: 'Каталог'
+      },
       categoriesArr: ["Все", "Кольца", "Серьги", "Браслеты"],
       metalsArr: ["Все", "Золото", "Серебро"],
       addsArr: ["Все", "Без вставок", "Фианиты", "Стекло"]

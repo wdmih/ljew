@@ -15,8 +15,8 @@ body {
   height: 100%;
 }
 body {
-  width: 1366px;
-  margin: 0 auto;
+  // width: 1366px;
+  // margin: 0 auto;
 }
 #__nuxt,
 #__layout,
@@ -60,14 +60,14 @@ ul {
 
 .products-container {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 100px;
 
-  &-inner {
-    flex-basis: 980px;
-    position: relative;
+  &--home {
+    flex-wrap: nowrap;
+    display: block;
   }
+
 }
 
 .scroll-down-container {
@@ -75,7 +75,6 @@ ul {
   color: $c_main-black;
   font-size: 40px;
   line-height: 1;
-  margin-top: -30px;
   margin-bottom: 60px;
 
   a {
@@ -148,6 +147,7 @@ ul {
 .section-title-container {
   flex-basis: 266px;
   align-self: center;
+  flex-shrink: 0;
 }
 
 .section-title {

@@ -1,7 +1,5 @@
 .hero-container {
-  min-height: 588px;
   width: 100%;
-  overflow: hidden;
   position: relative;
 
   &-inner {
@@ -35,6 +33,7 @@
 }
 .swiper-pagination-custom-bullets {
   width: 6px;
+  position: absolute;
   left: -25px;
   top: 50%;
   transform: translateY(-50%);
@@ -53,6 +52,7 @@
 }
 .swiper-button {
   top: 100%;
+  position: absolute;
   background: $c_main-black;
   background-image: none;
   color: #fff;
@@ -67,24 +67,35 @@
   &:hover {
     background: lighten($c_main-black, 15%);
   }
+}
+.product-slider-controls {
+  padding-left: 1px;
 
-  &-prev {
-    left: 0;
-  }
-  &-next {
-    left: 50px;
+  .swiper-button {
+    position: static;
+    display: inline-block;
   }
 }
-.swiper-controls {
-  display: flex;
-}
-.product-swiper-pagination {
-  padding-left: 50px;
 
-  &.swiper-pagination-custom-bullets {
-    width: auto;
-    left: 0;
-    top: 0;
-    transform: translateY(0);
+.hero-swiper-button-prev {
+  left: 0;
+}
+.hero-swiper-button-next {
+  left: 50px;
+}
+.product-slider {
+  .product-container {
+    margin-bottom: 0;
+    // min-width: 25%;
+    padding: 0;
   }
+}
+
+.products-slider-container {
+  flex-basis: 980px;
+  flex-grow: 1;
+}
+
+.product-slider-outer {
+  margin: 0 -10px;
 }
