@@ -65,9 +65,7 @@ ul {
 
   &--home {
     flex-wrap: nowrap;
-    display: block;
   }
-
 }
 
 .scroll-down-container {
@@ -75,7 +73,7 @@ ul {
   color: $c_main-black;
   font-size: 40px;
   line-height: 1;
-  margin-bottom: 60px;
+  margin:20px 0 60px;
 
   a {
     color: inherit;
@@ -148,6 +146,7 @@ ul {
   flex-basis: 266px;
   align-self: center;
   flex-shrink: 0;
+  flex-grow: 0;
 }
 
 .section-title {

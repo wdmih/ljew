@@ -29,15 +29,14 @@
       <div class="product-slider-container">
           <div class="product-slider-outer" v-swiper:productSwiper="productSwiperOption">
             <div class="product-slider swiper-wrapper">
-              <Product
-                class="swiper-slide"
-                v-for="(product, index) in products"
-                :key="index"
-                :src="product.content.image"
-                :slug="product.slug"
-                :title="product.name"
-                :id="product.id">
-              </Product>
+              <div class="product-slider-item swiper-slide" v-for="(product, index) in products" :key="index">
+                <Product
+                  :src="product.content.image"
+                  :slug="product.slug"
+                  :title="product.name"
+                  :id="product.id">
+                </Product>
+              </div>
             </div>
           </div>
           <div class="product-slider-controls">
@@ -55,17 +54,17 @@
 </template>
 
 <script>
-import HeroSlider from "@/components/HeroSlider"
-import Product from "@/components/Product"
+import HeroSlider from '@/components/HeroSlider'
+import Product from '@/components/Product'
 
-import { mapState } from "vuex"
+import { mapState } from 'vuex'
 
 export default {
   components: {
     HeroSlider,
     Product
   },
-  computed: mapState(["products"]),
+  computed: mapState(['products']),
   data() {
     return {
       productSwiperOption: {
@@ -75,7 +74,7 @@ export default {
         spaceBetween: 20,
         pagination: {
           el: '.product-swiper-pagination',
-          clickable: true,
+          clickable: true
         },
         navigation: {
           nextEl: '.product-swiper-button-next',
@@ -88,4 +87,5 @@ export default {
 </script>
 
 <style lang="scss">
+
 </style>

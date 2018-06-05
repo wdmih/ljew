@@ -23,25 +23,25 @@
 </template>
 
 <script>
-import Product from "@/components/Product"
-import Dropdown from "@/components/Dropdown"
+import Product from '@/components/Product'
+import Dropdown from '@/components/Dropdown'
 
-import { mapState } from "vuex"
+import { mapState } from 'vuex'
 
 export default {
   components: {
     Product,
     Dropdown
   },
-  computed: mapState(["products"]),
+  computed: mapState(['products']),
   data() {
     return {
       page: {
         title: 'Каталог'
       },
-      categoriesArr: ["Все", "Кольца", "Серьги", "Браслеты"],
-      metalsArr: ["Все", "Золото", "Серебро"],
-      addsArr: ["Все", "Без вставок", "Фианиты", "Стекло"]
+      categoriesArr: ['Все', 'Кольца', 'Серьги', 'Браслеты'],
+      metalsArr: ['Все', 'Золото', 'Серебро'],
+      addsArr: ['Все', 'Без вставок', 'Фианиты', 'Стекло']
     }
   }
   // methods: {

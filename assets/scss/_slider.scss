@@ -83,19 +83,7 @@
 .hero-swiper-button-next {
   left: 50px;
 }
-.product-slider {
-  .product-container {
-    margin-bottom: 0;
-    // min-width: 25%;
-    padding: 0;
-  }
-}
-
-.products-slider-container {
-  flex-basis: 980px;
-  flex-grow: 1;
-}
-
-.product-slider-outer {
-  margin: 0 -10px;
+.product-slider-container {
+  width: calc(100% - 266px);
+  position: relative;
 }
