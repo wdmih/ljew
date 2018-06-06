@@ -9,7 +9,7 @@
       <dropdown :title="'Металл:'" :options="metalsArr"></dropdown>
       <dropdown :title="'Вставки:'" :options="addsArr"></dropdown>
     </div>
-    <div class="products-container padded">
+    <div class="products-container offset padded">
       <Product
         v-for="(product, index) in products"
         :key="index"

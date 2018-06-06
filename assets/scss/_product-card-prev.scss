@@ -1,11 +1,12 @@
 .product-container {
   position: relative;
   overflow: hidden;
-  flex: 0 1 0;
-  padding: 0 10px;
-  margin-bottom: 20px;
-  align-items: center;
-  min-width: 20%;
+  // flex: 0 1 0;
+  // padding: 0 10px;
+  margin: 0 0 20px 20px;
+  flex-basis: calc(20% - 20px);
+  // align-items: center;
+  // min-width: 20%;
   text-align: center;
 
   img {
@@ -18,14 +19,14 @@
     position: absolute;
     color: #fff;
     top: 20px;
-    right: 30px;
+    right: 20px;
     bottom: 20px;
-    left: 30px;
+    left: 20px;
     background-color: rgba($c_main-black, 0.8);
     //box-shadow: 0 0 0 30px rgba(0, 0, 0, 0.795);
     opacity: 0;
     transition: opacity 0.35s, transform 0.35s;
-    transform: scale3d(1.2,1.3,1);
+    transform: scale3d(1.4,1.4,1);
 
   }
   &:hover .product-detail {

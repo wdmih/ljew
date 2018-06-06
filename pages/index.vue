@@ -29,14 +29,14 @@
       <div class="product-slider-container">
           <div class="product-slider-outer" v-swiper:productSwiper="productSwiperOption">
             <div class="product-slider swiper-wrapper">
-              <div class="product-slider-item swiper-slide" v-for="(product, index) in products" :key="index">
-                <Product
-                  :src="product.content.image"
-                  :slug="product.slug"
-                  :title="product.name"
-                  :id="product.id">
-                </Product>
-              </div>
+              <Product
+                class="swiper-slide"
+                v-for="(product, index) in products" :key="index"
+                :src="product.content.image"
+                :slug="product.slug"
+                :title="product.name"
+                :id="product.id">
+              </Product>
             </div>
           </div>
           <div class="product-slider-controls">
@@ -47,6 +47,9 @@
               <i class="icon-angle-right"></i>
             </div>
             <div class="product-swiper-pagination"></div>
+            <div class="product-swiper-link">
+              <nuxt-link to="/catalog">Все товары</nuxt-link>
+            </div>
           </div>
       </div>
     </section>
@@ -74,7 +77,8 @@ export default {
         spaceBetween: 20,
         pagination: {
           el: '.product-swiper-pagination',
-          clickable: true
+          clickable: true,
+          modifierClass: 'swiper-pagination-custom-'
         },
         navigation: {
           nextEl: '.product-swiper-button-next',
