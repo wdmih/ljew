@@ -158,3 +158,30 @@ ul {
 .offset {
   margin-left: -20px;
 }
+
+.promo {
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  &-container {
+    margin-bottom: 60px;
+  }
+
+  &-info {
+    max-width: 40%;
+    margin: 35px 50px 25px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-transform: uppercase;
+
+    h4 {
+      font-size: 60px;
+      text-align: right;
+      margin-bottom: 25px;
+    }
+  }
+}
