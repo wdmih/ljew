@@ -1,6 +1,6 @@
 <template>
-  <section class="page-container text-center">
-    <div class="page-title">
+  <section class="page-container">
+    <div class="page-title text-center">
       <h3>{{page.title}}</h3>
     </div>
     <div class="filter-container text-center">

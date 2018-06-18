@@ -4,7 +4,8 @@
       <div class="product-detail">
         <h3>{{title}}</h3>
         <span class="product-code">Артикул: {{id}}</span>
-        <button class="btn-detail">Детали</button>
+        <nuxt-link tag="button" to="/detail" class="btn-detail">Детали</nuxt-link>
+        <!-- <button class="btn-detail">Детали</button> -->
       </div>
   </article>
 </template>
