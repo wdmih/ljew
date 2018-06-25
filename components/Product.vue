@@ -1,18 +1,19 @@
 <template>
   <article class="product-container">
     <img :src="src" :alt="slug">
-      <div class="product-detail">
-        <h3>{{title}}</h3>
-        <span class="product-code">Артикул: {{id}}</span>
-        <nuxt-link tag="button" to="/detail" class="btn-detail">Детали</nuxt-link>
-        <!-- <button class="btn-detail">Детали</button> -->
+      <div class="product-detail product-detail-overlay">
+        <div class="product-detail-info">
+          <h3>{{title}}</h3>
+          <span class="product-code">Артикул: {{id}}</span>
+        </div>
+        <nuxt-link tag="button" to="/detail" class="button--detail">Детали</nuxt-link>
       </div>
   </article>
 </template>
 
 <script>
 export default {
-  name: 'product',
+  name: "product",
   props: {
     src: {
       type: String,
@@ -35,5 +36,4 @@ export default {
 </script>
 
 <style>
-
 </style>

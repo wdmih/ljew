@@ -164,3 +164,34 @@ ul {
   margin-left: -20px;
 }
 
+.product-detail-container {
+  display: flex;
+  position: relative;
+  margin-bottom: 60px;
+
+  & > div {
+    flex-basis: 50%;
+  }
+}
+.product-detail-img {
+  padding-right: 45px;
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+.product-detail-info {
+  padding: 0 100px 0 15px;
+
+  p {
+    margin-bottom: 30px;
+  }
+}
+.product-detail-chars {
+
+  td:first-child {
+    font-weight: 700;
+    width: 180px;
+  }
+}
