@@ -14,7 +14,11 @@ const store = () => new Vuex.Store({
       state.products = products
     },
   },
-
+  getters: {
+    getProductBySlug: state => slug => {
+      return state.products.find(todo => todo.slug === slug)
+    }
+  },
   actions: {
     nuxtServerInit ({commit}){
       return this.$storyapi.get('cdn/stories', {

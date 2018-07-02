@@ -1,13 +1,14 @@
 <template>
   <article class="product-container">
-    <img :src="src" :alt="slug">
+    <nuxt-link :to="'/catalog/' + slug">
+      <img :src="src" :alt="slug">
       <div class="product-detail product-detail-overlay">
         <div class="product-detail-info">
           <h3>{{title}}</h3>
-          <span class="product-code">Артикул: {{id}}</span>
+          <span class="product-code">Артикул: {{code}}</span>
         </div>
-        <nuxt-link tag="button" to="/detail" class="button--detail">Детали</nuxt-link>
       </div>
+    </nuxt-link>
   </article>
 </template>
 
@@ -27,8 +28,8 @@ export default {
       type: String,
       required: true
     },
-    id: {
-      type: Number,
+    code: {
+      type: String,
       required: true
     }
   }

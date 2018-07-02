@@ -6,6 +6,11 @@
     width: calc(100% - 60px);
     margin-left: 60px;
     position: relative;
+
+    @include respond-to($tablet-portrait) {
+      width: calc(100% - 20px);
+      margin-left: 20px;
+    }
   }
 
   .swiper-container {

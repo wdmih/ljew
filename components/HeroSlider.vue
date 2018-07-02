@@ -2,11 +2,8 @@
   <div class="hero-container">
     <div class="hero-container-inner" v-swiper:heroSwiper="heroSwiperOption">
       <div class="hero-slider swiper-wrapper">
-        <div class="hero-slider__item swiper-slide">
-          <img src="/3.jpg" width="1306" height="539" alt="#">
-        </div>
-        <div class="hero-slider__item swiper-slide">
-          <img src="/2.jpg" width="1306" height="539" alt="#">
+        <div class="hero-slider__item swiper-slide" v-for="(slide, index) in slides" :key="index">
+          <img :src="slide.slideUrl" :alt="slide.slideAlt" width="1306" height="539">
         </div>
       </div>
       <div class="hero-swiper-pagination"></div>
@@ -22,6 +19,12 @@
 
 <script>
   export default {
+    props: {
+      slides: {
+        type: Array,
+        required: true
+      }
+    },
     data() {
       return {
         heroSwiperOption: {

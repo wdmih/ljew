@@ -1,6 +1,8 @@
 <template>
   <section class="page-container">
-    <HeroSlider/>
+    <HeroSlider
+      :slides="heroSlides">
+    </HeroSlider>
     <div class="scroll-down-container">
       <a href="#">
         <i class="icon-angle-double-down"></i>
@@ -22,37 +24,19 @@
         </div>
       </div>
     </section>
-    <section class="products-container products-container--home padded">
-      <div class="section-title-container">
-        <span class="section-title">Новинки</span>
-      </div>
-      <div class="product-slider-container">
-          <div class="product-slider-outer" v-swiper:productSwiper="productSwiperOption">
-            <div class="product-slider swiper-wrapper">
-              <Product
-                class="swiper-slide"
-                v-for="(product, index) in products" :key="index"
-                :src="product.content.image"
-                :slug="product.slug"
-                :title="product.name"
-                :id="product.id">
-              </Product>
-            </div>
-          </div>
-          <div class="product-slider-controls">
-            <div class="swiper-button product-swiper-button-prev" >
-              <i class="icon-angle-left"></i>
-            </div>
-            <div class="swiper-button product-swiper-button-next">
-              <i class="icon-angle-right"></i>
-            </div>
-            <div class="product-swiper-pagination"></div>
-            <div class="product-swiper-link">
-              <nuxt-link to="/catalog">Все товары</nuxt-link>
-            </div>
-          </div>
-      </div>
-    </section>
+
+    <ProductSlider
+      v-if="products.length > 0"
+      :swiperOptions="productSwiperOption"
+      :products="products">
+      <template slot="containerTitle">Новинки</template>
+      <template slot="sliderLink">
+        <div class="product-swiper-link">
+          <nuxt-link to="/catalog">Все товары</nuxt-link>
+        </div>
+      </template>
+    </ProductSlider>
+
     <section class="promo-container padded">
       <div class="promo" style="background-image: url(/promo.jpg)">
         <div class="promo-info">
@@ -86,16 +70,31 @@
 
 <script>
 import HeroSlider from '@/components/HeroSlider'
-import Product from '@/components/Product'
-
-import { mapState } from 'vuex'
+import ProductSlider from '@/components/ProductSlider'
+import { mapState } from "vuex"
 
 export default {
   components: {
     HeroSlider,
-    Product
+    ProductSlider
   },
-  computed: mapState(['products']),
+  async asyncData (context) {
+    let heroSlidesRes = await context.app.$storyapi.get('cdn/stories', {
+      version: 'draft', // only for dev. getting not only published items
+      starts_with: 'home-slider/',
+      // 'filter_query[published_at][gt-date]': '2018-06-29 21:00'
+    })
+  // let anoter data
+    return {
+      heroSlides: heroSlidesRes.data.stories.map(slide => {
+        return {
+          slideUrl: slide.content.image,
+          slideAlt: slide.slug
+        }
+      })
+      // bind: another data res
+    }
+  },
   data() {
     return {
       productSwiperOption: {
@@ -115,7 +114,8 @@ export default {
         }
       }
     }
-  }
+  },
+  computed: mapState(["products"])
 }
 </script>
 

@@ -14,10 +14,7 @@ body {
   padding: 0;
   height: 100%;
 }
-body {
-  // width: 1366px;
-  // margin: 0 auto;
-}
+
 #__nuxt,
 #__layout,
 #app {
@@ -44,6 +41,9 @@ ul {
 
 .padded {
   padding: 0 60px;
+  @include respond-to($tablet-portrait) {
+    padding: 0 20px;
+  }
 }
 
 .page-container {
@@ -60,6 +60,7 @@ ul {
   &--detail {
     //text-transform: none;
     letter-spacing: normal;
+    margin-bottom: 60px;
   }
 }
 
@@ -188,10 +189,20 @@ ul {
     margin-bottom: 30px;
   }
 }
-.product-detail-chars {
+.product-detail-props {
 
   td:first-child {
     font-weight: 700;
     width: 180px;
+  }
+  td:last-child {
+    text-transform: capitalize;
+  }
+
+  &-title {
+    text-transform: uppercase;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 20px;
   }
 }

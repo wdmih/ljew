@@ -17,7 +17,7 @@
       background-color: rgba(0, 0, 0, 0.603);
     }
     .product-detail-info {
-      top: 35%;
+      top: 55%;
       opacity: 1;
     }
     .button--detail {
@@ -32,16 +32,21 @@
     position: absolute;
     width: 100%;
     text-align: center;
-    top: 40%;
+    top: 60%;
     opacity: 0;
     color: #fff;
+    text-transform: uppercase;
     transition: .5s;
     padding: 10px;
+    transform: translateY(-50%);
   }
   h3 {
     font-size: 18px;
     letter-spacing: normal;
     margin-bottom: 30px;
+    max-height: 2.3em;
+    line-height: 1.15;
+    overflow: hidden;
   }
 
   .button--detail {

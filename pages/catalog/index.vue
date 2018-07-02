@@ -13,10 +13,10 @@
       <Product
         v-for="(product, index) in products"
         :key="index"
-        :src="product.content.image"
+        :src="product.content.ImageCatalog"
         :slug="product.slug"
-        :title="product.name"
-        :id="product.id">
+        :title="product.content.Title"
+        :code="product.content.Code">
       </Product>
     </div>
   </section>
@@ -26,14 +26,23 @@
 import Product from '@/components/Product'
 import Dropdown from '@/components/Dropdown'
 
-import { mapState } from 'vuex'
+// import { mapState } from 'vuex'
 
 export default {
   components: {
     Product,
     Dropdown
   },
-  computed: mapState(['products']),
+  async asyncData (context) {
+    let productsRes = await context.app.$storyapi.get('cdn/stories', {
+      version: 'draft',  // only for development
+      starts_with: 'catalog/'
+    })
+    return {
+      products: productsRes.data.stories
+    }
+  },
+  // computed: mapState(['products']),
   data() {
     return {
       page: {
@@ -44,11 +53,6 @@ export default {
       addsArr: ['Все', 'Без вставок', 'Фианиты', 'Стекло']
     }
   }
-  // methods: {
-  //   methodToRunOnSelect(payload) {
-  //     this.object = payload;
-  //   }
-  // }
 }
 </script>
 
