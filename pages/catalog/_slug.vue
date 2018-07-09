@@ -38,18 +38,6 @@ export default {
   components: {
     ProductSlider
   },
-  async asyncData({app, params, error}) {
-    try {
-      let productRes = await app.$storyapi.get('cdn/stories/catalog/' + params.slug, {
-      version: 'draft'
-      })
-      return {
-      product: productRes.data.story
-      }
-    } catch (e) {
-      error({ statusCode: 404, message: 'Страница не найдена' })
-    }
-  },
   data() {
     return {
       productSwiperOption: {
@@ -107,9 +95,16 @@ export default {
         },
       ]
     },
+    product () {
+      return this.$store.getters.getProductBySlug(this.$route.params.slug)
+    },
     ...mapState([
       'products'
     ])
+  },
+  validate ({ params, store }) {
+    // Check if `params.slug` is an existing category
+    return store.state.products.some(product => product.slug === params.slug)
   }
 }
 </script>

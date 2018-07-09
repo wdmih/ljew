@@ -13,14 +13,14 @@
         <span class="top-categories__title">кольца</span>
       </div>
       <div class="top_categories__item" style="background-image: url('./c2.jpg')">
-        <span class="top-categories__title">кольца</span>
+        <span class="top-categories__title">подвески</span>
       </div>
       <div class="top-categories__l2">
         <div class="top_categories__item" style="background-image: url('./c3.jpg')">
-          <span class="top-categories__title">кольца</span>
+          <span class="top-categories__title">серьги</span>
         </div>
         <div class="top_categories__item" style="background-image: url('./c4.jpg')">
-          <span class="top-categories__title">кольца</span>
+          <span class="top-categories__title">браслеты</span>
         </div>
       </div>
     </section>
@@ -78,23 +78,6 @@ export default {
     HeroSlider,
     ProductSlider
   },
-  async asyncData (context) {
-    let heroSlidesRes = await context.app.$storyapi.get('cdn/stories', {
-      version: 'draft', // only for dev. getting not only published items
-      starts_with: 'home-slider/',
-      // 'filter_query[published_at][gt-date]': '2018-06-29 21:00'
-    })
-  // let anoter data
-    return {
-      heroSlides: heroSlidesRes.data.stories.map(slide => {
-        return {
-          slideUrl: slide.content.image,
-          slideAlt: slide.slug
-        }
-      })
-      // bind: another data res
-    }
-  },
   data() {
     return {
       productSwiperOption: {
@@ -115,7 +98,7 @@ export default {
       }
     }
   },
-  computed: mapState(["products"])
+  computed: mapState(["products", "heroSlides"])
 }
 </script>
 

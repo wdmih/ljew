@@ -26,23 +26,14 @@
 import Product from '@/components/Product'
 import Dropdown from '@/components/Dropdown'
 
-// import { mapState } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   components: {
     Product,
     Dropdown
   },
-  async asyncData (context) {
-    let productsRes = await context.app.$storyapi.get('cdn/stories', {
-      version: 'draft',  // only for development
-      starts_with: 'catalog/'
-    })
-    return {
-      products: productsRes.data.stories
-    }
-  },
-  // computed: mapState(['products']),
+  computed: mapState(['products']),
   data() {
     return {
       page: {
