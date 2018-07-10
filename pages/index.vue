@@ -26,9 +26,9 @@
     </section>
 
     <ProductSlider
-      v-if="products.length > 0"
+      v-if="newProducts.length > 4"
       :swiperOptions="productSwiperOption"
-      :products="products">
+      :products="newProducts">
       <template slot="containerTitle">Новинки</template>
       <template slot="sliderLink">
         <div class="product-swiper-link">
@@ -98,7 +98,14 @@ export default {
       }
     }
   },
-  computed: mapState(["products", "heroSlides"])
+  computed: {
+    newProducts () {
+      return this.$store.getters.getNewProducts
+    },
+    ...mapState([
+      "heroSlides"
+    ])
+  }
 }
 </script>
 

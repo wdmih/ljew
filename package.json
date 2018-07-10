@@ -5,7 +5,7 @@
   "author": "Wadym_IH <glutter@live.ru>",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "cross-env HOST=0.0.0.0 PORT=3000 nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -20,11 +20,12 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.5",
+    "cross-env": "^5.2.0",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
     "eslint-plugin-vue": "^4.0.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.9.2",
     "postcss-pxtorem": "^4.0.1",
     "sass-loader": "^7.0.3"
   }

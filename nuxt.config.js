@@ -33,7 +33,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-
+    analyze: true,
     /*
     ** PostCSS plugins config
     */
