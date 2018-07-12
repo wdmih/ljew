@@ -41,9 +41,6 @@ ul {
 
 .padded {
   padding: 0 60px;
-  @include respond-to($tablet-portrait) {
-    padding: 0 20px;
-  }
 }
 
 .page-container {
