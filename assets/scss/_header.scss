@@ -4,6 +4,14 @@
     padding: 0 20px 0 60px;
     justify-content: space-between;
     flex-shrink: 0;
+
+    @include for-tablet-portrait {
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+      height: 165px;
+      position: relative;
+    }
   }
   .logo {
     display: block;
@@ -11,6 +19,10 @@
     cursor: pointer;
     text-decoration: none;
     color: inherit;
+
+    @include for-tablet-portrait {
+      margin-bottom: 28px;
+    }
     h1 {
       font-family: 'ArabellaSwash', sans-serif;
       font-size: 49px;
@@ -31,8 +43,16 @@
   .main-nav {
     display: flex;
     align-items: center;
+
+    @include for-tablet-portrait {
+      margin-bottom: 18px;
+    }
     ul {
       margin-right: 80px;
+
+      @include for-tablet-portrait {
+        margin-right: 0;
+      }
 
       & a::before,
       & a::after {
@@ -79,6 +99,12 @@
     }
   }
   .main-search {
+    @include for-tablet-portrait {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
     button {
       border: none;
       display: inline-block;

@@ -21,6 +21,10 @@
       font-size: 60px;
       text-align: right;
       margin-bottom: 25px;
+
+      @include for-tablet-landscape {
+        font-size: 42px;
+      }
     }
   }
 }

@@ -94,6 +94,14 @@ export default {
         navigation: {
           nextEl: '.product-swiper-button-next',
           prevEl: '.product-swiper-button-prev'
+        },
+        breakpoints: {
+          992: {
+            slidesPerView: 2
+          },
+          480: {
+            slidesPerView: 1
+          }
         }
       }
     }

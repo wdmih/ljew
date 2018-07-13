@@ -3,11 +3,21 @@
   list-style-type: none;
   margin-bottom: 90px;
 
+  @include for-tablet-portrait {
+    flex-wrap: wrap;
+  }
+
   &-item {
     text-indent: 45px;
     position: relative;
     flex-basis: 25%;
-
+    @include for-tablet-portrait {
+     flex-basis: 50%;
+     flex-shrink: 1;
+    }
+    @include for-phone-only {
+      flex-basis: 100%;
+    }
     &:not(:first-child) {
       margin-left: 20px;
     }
