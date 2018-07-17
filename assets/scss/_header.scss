@@ -16,6 +16,23 @@
     @include for-phone-only {
       height: auto;
       padding-top: 20px;
+      margin-bottom: 18px;
+    }
+    .main-nav {
+      @include for-phone-only {
+        margin-bottom: 0;
+        ul {
+          text-align: center;
+        }
+        li {
+          display: block;
+          margin-bottom: 5px;
+
+          &:not(:first-child) {
+            margin-left: 0;
+          }
+        }
+      }
     }
   }
 
@@ -62,10 +79,18 @@
     @include for-tablet-portrait {
       margin-bottom: 18px;
     }
+    @include for-phone-only {
+      width: 100%;
+      justify-content: space-between;
+    }
     ul {
       margin-right: 80px;
       @include for-tablet-portrait {
         margin-right: 0;
+      }
+      @include for-phone-only {
+        flex-grow: 1;
+        margin-left: 29px;
       }
       & a::before,
       & a::after {
@@ -119,6 +144,10 @@
       right: 20px;
       top: 50%;
       transform: translateY(-50%);
+    }
+    @include for-phone-only {
+      position: static;
+      transform: none;
     }
     button {
       border: none;

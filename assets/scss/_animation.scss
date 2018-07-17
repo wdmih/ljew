@@ -1,0 +1,19 @@
+@include for-phone-only {
+  .slide-toggle-enter-active,
+  .slide-toggle-leave-active {
+    transition: height .4s, opacity .2s;
+  }
+  .slide-toggle-enter-active {
+    height: 90px;
+    opacity: 1;
+  }
+  .slide-toggle-enter,
+  .slide-toggle-leave-active {
+    height: 0;
+    opacity: 0;
+  }
+  .slide-toggle-leave {
+    height: 90px;
+    opacity: 1;
+  }
+}

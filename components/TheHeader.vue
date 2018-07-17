@@ -5,7 +5,7 @@
       <h1>LeSia</h1>
       <span class="sub-logo">your presious style</span>
     </nuxt-link>
-    <transition>
+    <transition name="slide-toggle">
       <nav class="main-nav" v-show="$mq !== 'phone' || isVisible">
       <ul>
         <li><nuxt-link to="/catalog">каталог</nuxt-link></li>
