@@ -110,8 +110,10 @@
   cursor: pointer;
   transition: background .4s ease;
 
-  &:hover {
-    background: lighten($c_main-black, 15%);
+  @include hover {
+    &:hover {
+      background: lighten($c_main-black, 15%);
+    }
   }
 }
 .product-slider-controls {
@@ -131,7 +133,7 @@
 .product-slider-container {
   width: calc(100% - 266px);
   position: relative;
-  @include for-phone-only {
+  @include for-tablet-portrait {
     width: 100%;
   }
 }
@@ -151,6 +153,12 @@
   font-weight: 700;
   vertical-align: middle;
   margin-left: 50px;
+
+  @include for-tablet-portrait {
+    display: block;
+    margin-left: 0;
+    text-align: center;
+  }
 
   a {
     text-decoration: none;

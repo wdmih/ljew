@@ -1,0 +1,33 @@
+.hamburger {
+  display: none;
+  position: absolute;
+  left: 10px;
+  top: 20px;
+  cursor: pointer;
+
+  @include for-phone-only {
+    display: block;
+  }
+  .line {
+    width: 40px;
+    height: 4px;
+    background-color: black;
+    display: block;
+    margin: 9px auto;
+    border-radius: 25px;
+    transition: all 0.2s ease-in-out;
+  }
+  &.active {
+    .line:nth-child(1) {
+      transform: translateX(13px) translateY(9px) rotate(90deg);
+    }
+    .line:nth-child(2) {
+      width: 31px;
+      transform: rotate(90deg);
+    }
+    .line:nth-child(3) {
+      width: 23px;
+      transform: translateX(-13px) translateY(-9px) rotate(90deg);
+    }
+  }
+}

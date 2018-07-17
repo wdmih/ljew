@@ -24,5 +24,10 @@ $c_main-black: #27212A;
   }
 }
 
+@mixin hover {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
 
 // max width свойства действуюют до достижения этой ширины

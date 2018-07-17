@@ -25,6 +25,7 @@ module.exports = {
 
   plugins: [
     { src: '~/plugins/vue-swiper.js', ssr: false },
+    { src: '~/plugins/vue-mq.js', ssr: false}
   ],
   css: [
     'swiper/dist/css/swiper.css'

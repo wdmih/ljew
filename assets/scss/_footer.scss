@@ -6,10 +6,18 @@
   padding: 0 20px 0 60px;
   justify-content: space-between;
   flex: 0 0 auto;
+  @include for-phone-only {
+    padding: 0 20px;
+    align-items: center;
+    justify-content: center;
+  }
 
   .main-nav {
     ul {
       margin-right: 105px;
+    }
+    @include for-phone-only {
+      display: none;
     }
   }
 }

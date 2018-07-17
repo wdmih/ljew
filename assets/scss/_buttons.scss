@@ -11,8 +11,10 @@
   transition: background .4s ease;
   cursor: pointer;
 
-  &:hover {
-    background: lighten($c_main-black, 15%);
+  @include hover {
+    &:hover {
+      background: lighten($c_main-black, 15%);
+    }
   }
 
   &--promo {

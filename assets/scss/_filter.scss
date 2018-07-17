@@ -35,8 +35,10 @@
       cursor: pointer;
       white-space: nowrap;
 
-      &:hover {
-        background: #eee;
+      @include hover {
+        &:hover {
+          background: #eee;
+        }
       }
     }
   }

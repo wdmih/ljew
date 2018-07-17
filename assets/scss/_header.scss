@@ -12,16 +12,25 @@
       height: 165px;
       position: relative;
     }
+
+    @include for-phone-only {
+      height: auto;
+      padding-top: 20px;
+    }
   }
+
   .logo {
     display: block;
     padding-top: 22px;
     cursor: pointer;
     text-decoration: none;
     color: inherit;
-
     @include for-tablet-portrait {
       margin-bottom: 28px;
+    }
+    @include for-phone-only {
+      padding-top: 0;
+      margin-bottom: 20px;
     }
     h1 {
       font-family: 'ArabellaSwash', sans-serif;
@@ -29,6 +38,9 @@
       letter-spacing: 4.9px;
       line-height: 1;
       margin: 0;
+      @include for-phone-only {
+        font-size: 36px;
+      }
     }
     .sub-logo {
       display: block;
@@ -38,22 +50,23 @@
       letter-spacing: 5.52px;
       text-transform: uppercase;
       margin-top: -5px;
+      @include for-phone-only {
+        font-size: 8px;
+      }
     }
   }
+
   .main-nav {
     display: flex;
     align-items: center;
-
     @include for-tablet-portrait {
       margin-bottom: 18px;
     }
     ul {
       margin-right: 80px;
-
       @include for-tablet-portrait {
         margin-right: 0;
       }
-
       & a::before,
       & a::after {
         display: inline-block;
@@ -72,12 +85,14 @@
         content: ']';
         transform: translateX(-20px);
       }
-      & a:hover::before,
-      & a:hover::after,
-      & a:focus::before,
-      & a:focus::after {
-        opacity: 1;
-        transform: translateX(0px);
+      @include hover {
+        & a:hover::before,
+        & a:hover::after,
+        & a:focus::before,
+        & a:focus::after {
+          opacity: 1;
+          transform: translateX(0px);
+        }
       }
     }
     li {
@@ -87,10 +102,9 @@
       text-transform: uppercase;
       font-weight: 700;
       letter-spacing: 5.32px;
-      &:not(:first-child){
+      &:not(:first-child) {
         margin-left: 30px;
       }
-
       a {
         text-decoration: none;
         color: inherit;
@@ -98,6 +112,7 @@
       }
     }
   }
+
   .main-search {
     @include for-tablet-portrait {
       position: absolute;
