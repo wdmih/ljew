@@ -3,11 +3,11 @@
     <HeroSlider :slides="heroSlides">
     </HeroSlider>
     <div class="scroll-down-container">
-      <a href="#">
+      <a href="#" v-scroll-to="'#element'">
         <i class="icon-angle-double-down"></i>
       </a>
     </div>
-    <section class="top-categories-container padded clearfix">
+    <section id="element" class="top-categories-container padded clearfix">
       <div class="top_categories__item" style="background-image: url('./c1.jpg')">
         <span class="top-categories__title">кольца</span>
       </div>

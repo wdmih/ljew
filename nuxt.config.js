@@ -25,7 +25,8 @@ module.exports = {
 
   plugins: [
     { src: '~/plugins/vue-swiper.js', ssr: false },
-    { src: '~/plugins/vue-mq.js', ssr: false}
+    { src: '~/plugins/vue-mq.js', ssr: false },
+    { src: '~/plugins/vue-scroll-to.js' }
   ],
   css: [
     'swiper/dist/css/swiper.css'
@@ -34,6 +35,15 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    babel: {
+      presets: [['vue-app', {
+        useBuiltIns: true,
+        targets: {
+          ie: 9, uglify: true
+        }
+      }]]
+    },
+    vendor: ['babel-polyfill'],
     analyze: true,
     /*
     ** PostCSS plugins config
