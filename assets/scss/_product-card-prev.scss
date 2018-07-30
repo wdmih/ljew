@@ -39,6 +39,7 @@
       }
     }
   }
+
   .product-detail-info {
     position: absolute;
     width: 100%;
@@ -50,6 +51,13 @@
     transition: .5s;
     padding: 10px;
     transform: translateY(-50%);
+    @include for-tablet-landscape {
+      position: static;
+      opacity: 1;
+      padding: 0;
+      transform: none;
+      color: $c_main_black;
+    }
   }
   h3 {
     font-size: 18px;
@@ -58,6 +66,10 @@
     max-height: 2.3em;
     line-height: 1.15;
     overflow: hidden;
+    @include for-tablet-landscape {
+      font-size: 16px;
+      margin-bottom: 0;
+    }
   }
 
   .button--detail {
@@ -78,6 +90,10 @@
     transition: .6s;
     opacity: 0;
   }
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .product-detail-overlay {
@@ -91,4 +107,9 @@
   border: none;
   transition: all 0.5s ease-out;
   z-index: 4;
+
+  @include for-tablet-landscape {
+    position: static;
+    height: auto;
+  }
 }

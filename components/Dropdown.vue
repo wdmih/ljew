@@ -1,6 +1,6 @@
 <template>
   <div class="filter-item">
-    <div @click="toggleDd()" v-on-clickaway="close">
+    <div @click="toggleDd()" v-click-outside="close">
       <span class="filter-item__title">{{title}}</span>
       <span class="filter-item__current-option">
         {{selected ? selected : options[0]}}
@@ -16,10 +16,8 @@
 </template>
 
 <script>
-import { mixin as clickaway } from 'vue-clickaway'
 
 export default {
-  mixins: [clickaway],
   props: {
     title: {
       type: String,

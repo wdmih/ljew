@@ -11,7 +11,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Oswald:400,700&amp;subset=cyrillic'}
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Oswald:400,700&amp;subset=cyrillic', type:'text/css'}
     ]
   },
   /*
@@ -26,7 +26,8 @@ module.exports = {
   plugins: [
     { src: '~/plugins/vue-swiper.js', ssr: false },
     { src: '~/plugins/vue-mq.js', ssr: false },
-    { src: '~/plugins/vue-scroll-to.js' }
+    { src: '~/plugins/vue-scroll-to.js' },
+    { src: '~/plugins/vue-click-outside.js', ssr: false }
   ],
   css: [
     'swiper/dist/css/swiper.css'

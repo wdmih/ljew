@@ -26,7 +26,7 @@ const store = () => new Vuex.Store({
       function  filterByDate(item) {
         let today = new Date()
         let startDate = new Date(today.getTime() - 30*24*60*60*1000)
-        let itemDate = Date.parse(item.published_at)
+        let itemDate = Date.parse(item.created_at)
         if (itemDate >= startDate) {
           return true
         }
@@ -38,13 +38,13 @@ const store = () => new Vuex.Store({
   actions: {
     async nuxtServerInit ({commit}){
       const productsRes = await this.$storyapi.get('cdn/stories', {
-        version: 'published',
+        version: 'draft',
         starts_with: 'catalog/'
       })
       commit ('SET_PRODUCTS', productsRes.data.stories)
 
       const heroSliderRes = await this.$storyapi.get('cdn/stories', {
-        version: 'published',
+        version: 'draft',
         starts_with: 'home-slider/'
       })
       commit('SET_SLIDES', heroSliderRes.data.stories.map(slide => {

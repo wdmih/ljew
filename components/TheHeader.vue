@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <Hamburger @click.native="isVisible = !isVisible" :isActive="isVisible" v-on-clickaway="close"/>
+    <Hamburger @click.native="isVisible = !isVisible" :isActive="isVisible" v-click-outside="close"/>
     <nuxt-link to="/" class="logo">
       <h1>LeSia</h1>
       <span class="sub-logo">your presious style</span>
@@ -22,10 +22,8 @@
 
 <script>
 import Hamburger from '@/components/Hamburger'
-import { mixin as clickaway } from 'vue-clickaway'
 
 export default {
-  mixins: [clickaway],
   components: {
     Hamburger
   },

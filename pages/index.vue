@@ -22,7 +22,7 @@
       </div>
     </section>
 
-    <ProductSlider v-if="newProducts.length > 4" :swiperOptions="productSwiperOption" :products="newProducts">
+    <ProductSlider v-if="newProducts.length >= 4" :swiperOptions="productSwiperOption" :products="newProducts">
       <template slot="containerTitle">Новинки</template>
       <template slot="sliderLink">
         <div class="product-swiper-link">

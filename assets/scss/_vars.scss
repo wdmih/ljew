@@ -25,7 +25,7 @@ $c_main-black: #27212A;
 }
 
 @mixin hover {
-  @media (min-width: 992px) {
+  @media (min-width: 993px) {
     @content;
   }
 }
