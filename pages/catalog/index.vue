@@ -11,6 +11,7 @@
     </div>
     <div class="products-container offset padded">
       <Product
+        class="product-container--catalog"
         v-for="(product, index) in products"
         :key="index"
         :src="product.content.ImageCatalog"
