@@ -38,6 +38,7 @@ export default {
     updateSelected(item) {
       this.selected = item
       this.showDd = false
+      this.$emit('updateDdValue', item)
     },
     toggleDd() {
       this.showDd = !this.showDd
