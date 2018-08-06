@@ -8,18 +8,18 @@
       </a>
     </div>
     <section id="element" class="top-categories-container padded clearfix">
-      <div class="top_categories__item" style="background-image: url('./c1.jpg')">
+      <nuxt-link tag="div" :to="{ name: 'catalog', params: { category: 'кольца' }}" class="top_categories__item" style="background-image: url('./c1.jpg')">
         <span class="top-categories__title">кольца</span>
-      </div>
-      <div class="top_categories__item" style="background-image: url('./c2.jpg')">
+      </nuxt-link>
+      <nuxt-link tag="div" :to="{ name: 'catalog', params: { category: 'подвески' }}" class="top_categories__item" style="background-image: url('./c2.jpg')">
         <span class="top-categories__title">подвески</span>
-      </div>
-      <div class="top_categories__item" style="background-image: url('./c3.jpg')">
+      </nuxt-link>
+      <nuxt-link tag="div" :to="{ name: 'catalog', params: { category: 'серьги' }}" class="top_categories__item" style="background-image: url('./c3.jpg')">
         <span class="top-categories__title">серьги</span>
-      </div>
-      <div class="top_categories__item" style="background-image: url('./c4.jpg')">
+      </nuxt-link>
+      <nuxt-link tag="div" :to="{ name: 'catalog', params: { category: 'браслеты' }}" class="top_categories__item" style="background-image: url('./c4.jpg')">
         <span class="top-categories__title">браслеты</span>
-      </div>
+      </nuxt-link>
     </section>
 
     <ProductSlider v-if="newProducts.length >= 4" :swiperOptions="productSwiperOption" :products="newProducts">

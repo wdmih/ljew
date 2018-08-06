@@ -1,10 +1,20 @@
 <template>
-  <h1>about us</h1>
+  <section class="page-container">
+    <div class="page-title text-center">
+      <h3>{{page.title}}</h3>
+    </div>
+  </section>
 </template>
 
 <script>
 export default {
-
+  data() {
+    return {
+      page: {
+        title: 'о нас'
+      }
+    }
+  }
 }
 </script>
 

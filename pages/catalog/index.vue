@@ -5,7 +5,7 @@
     </div>
     <div class="filter-container text-center">
       <span class="filter-title">фильтр:</span>
-      <dropdown :title="'Категория:'" :options="categoriesArr" @updateSelected="selectedFilter.TypeOfProduct = $event"></dropdown>
+      <dropdown :title="'Категория:'" :routeParam="this.$route.params.category" :options="categoriesArr" @updateSelected="selectedFilter.TypeOfProduct = $event"></dropdown>
       <dropdown :title="'Металл:'" :options="metalsArr" @updateSelected="selectedFilter.Metal = $event"></dropdown>
       <dropdown :title="'Вставки:'" :options="addsArr" @updateSelected="selectedFilter.GemMaterial = $event"></dropdown>
     </div>
@@ -40,9 +40,9 @@ export default {
       page: {
         title: 'Каталог'
       },
-      categoriesArr: ['Все', 'кольца', 'Серьги', 'Браслеты'],
-      metalsArr: ['Все', 'Золото', 'Серебро'],
-      addsArr: ['Все', 'Без вставок', 'Фианиты', 'Стекло'],
+      categoriesArr: ['Все', 'кольца', 'Серьги', 'Браслеты', 'Цепочки', 'Подвески'],
+      metalsArr: ['Все', 'Золото', 'Серебро', 'Другое'],
+      addsArr: ['Все', 'Без вставок', 'Фианиты', 'Стекло', 'Жемчуг'],
       selectedFilter: {
         TypeOfProduct: 'Все',
         Metal: 'Все',
@@ -66,6 +66,11 @@ export default {
       return products.filter((item) => {
         return filterKeys.every(key => !!~filter[key].indexOf(item.content[key]))
       })
+    }
+  },
+  mounted () {
+    if (this.$route.params.category) {
+      this.selectedFilter.TypeOfProduct = this.$route.params.category
     }
   }
 }

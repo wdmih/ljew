@@ -26,6 +26,9 @@ export default {
     options: {
       type: [Array, Object],
       required: true
+    },
+    routeParam: {
+      type: String
     }
   },
   data (){
@@ -45,6 +48,11 @@ export default {
     },
     close () {
       this.showDd = false
+    }
+  },
+  mounted () {
+    if (this.routeParam) {
+      this.selected = this.routeParam
     }
   }
 }
