@@ -5,13 +5,9 @@
     </div>
     <div class="filter-container text-center">
       <span class="filter-title">фильтр:</span>
-      <select v-model="selectedFilter">
-        <option value="Все">All</option>
-        <option value="Кольца">Category - a</option>
-      </select>
-      <!-- <dropdown :title="'Категория:'" :options="categoriesArr" @updateDdValue="selectedFilter[0] = $event"></dropdown>
-      <dropdown :title="'Металл:'" :options="metalsArr" @updateDdValue="selectedFilter[1] = $event"></dropdown>
-      <dropdown :title="'Вставки:'" :options="addsArr" @updateDdValue="selectedFilter[2] = $event"></dropdown> -->
+      <dropdown :title="'Категория:'" :options="categoriesArr" @updateSelected="selectedFilter.TypeOfProduct = $event"></dropdown>
+      <dropdown :title="'Металл:'" :options="metalsArr" @updateSelected="selectedFilter.Metal = $event"></dropdown>
+      <dropdown :title="'Вставки:'" :options="addsArr" @updateSelected="selectedFilter.GemMaterial = $event"></dropdown>
     </div>
     <div class="products-container offset padded">
       <Product
@@ -23,6 +19,7 @@
         :title="product.content.Title"
         :code="product.content.Code">
       </Product>
+      <div class="product-container--no-product" v-if="filteredProducts.length <= 0">НЕТ ТОВАРОВ</div>
     </div>
   </section>
 </template>
@@ -43,24 +40,32 @@ export default {
       page: {
         title: 'Каталог'
       },
-      categoriesArr: ['Все', 'Кольца', 'Серьги', 'Браслеты'],
+      categoriesArr: ['Все', 'кольца', 'Серьги', 'Браслеты'],
       metalsArr: ['Все', 'Золото', 'Серебро'],
       addsArr: ['Все', 'Без вставок', 'Фианиты', 'Стекло'],
-      selectedFilter: ''
+      selectedFilter: {
+        TypeOfProduct: 'Все',
+        Metal: 'Все',
+        GemMaterial: 'Все'
+      }
     }
   },
   computed: {
     ...mapState(['products']),
 
-    filteredProducts() {
+    filteredProducts () {
       let products = this.products
+      let filter = {}
 
-      if (this.selectedFilter && this.selectedFilter.toLowerCase() !== 'все') {
-        products = products.filter((p) => {
-          return p.content.TypeOfProduct.toLowerCase() === this.selectedFilter.toLowerCase()
-        })
+      for (var key in this.selectedFilter) {
+        if (this.selectedFilter[key].toLowerCase() !== 'все') {
+          filter[key] = this.selectedFilter[key].toLowerCase()
+        }
       }
-      return products
+      let filterKeys = Object.keys(filter)
+      return products.filter((item) => {
+        return filterKeys.every(key => !!~filter[key].indexOf(item.content[key]))
+      })
     }
   }
 }

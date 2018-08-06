@@ -16,6 +16,11 @@
       flex-basis: calc(50% - 20px);
     }
   }
+  &--no-product {
+    flex-basis: 100%;
+    font-size: 18px;
+    text-align: center;
+  }
 
   img {
     width: 100%;
