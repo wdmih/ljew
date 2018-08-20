@@ -1,4 +1,5 @@
 $c_main-black: #27212A;
+$c_light-gray: #eee;
 
 @mixin for-phone-only {
   @media (max-width: 480px) {

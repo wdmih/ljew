@@ -5,9 +5,11 @@
     </div>
     <div class="filter-container text-center">
       <span class="filter-title">фильтр:</span>
-      <dropdown :title="'Категория:'" :routeParam="this.$route.params.category" :options="categoriesArr" @updateSelected="selectedFilter.TypeOfProduct = $event"></dropdown>
-      <dropdown :title="'Металл:'" :options="metalsArr" @updateSelected="selectedFilter.Metal = $event"></dropdown>
-      <dropdown :title="'Вставки:'" :options="addsArr" @updateSelected="selectedFilter.GemMaterial = $event"></dropdown>
+      <div class="filter-container-inner">
+        <dropdown :title="'Категория:'" :routeParam="this.$route.params.category" :options="categoriesArr" @updateSelected="selectedFilter.TypeOfProduct = $event"></dropdown>
+        <dropdown :title="'Металл:'" :options="metalsArr" @updateSelected="selectedFilter.Metal = $event"></dropdown>
+        <dropdown :title="'Вставки:'" :options="addsArr" @updateSelected="selectedFilter.GemMaterial = $event"></dropdown>
+      </div>
     </div>
     <div class="products-container offset padded">
       <Product

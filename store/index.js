@@ -7,7 +7,8 @@ const store = () => new Vuex.Store({
 
   state: {
     products: [],
-    heroSlides: []
+    heroSlides: [],
+    topCategories: []
   },
 
   mutations: {
@@ -16,6 +17,9 @@ const store = () => new Vuex.Store({
     },
     SET_SLIDES (state, heroSlides) {
       state.heroSlides = heroSlides
+    },
+    SET_TOP_CATEGORIES (state, topCategories) {
+      state.topCategories = topCategories
     }
   },
   getters: {
@@ -54,13 +58,16 @@ const store = () => new Vuex.Store({
         }
       }))
 
-    // --- RESERVED CODE FOR FUTURE --- //
-      // return this.$storyapi.get('cdn/stories', {
-      //   version: 'draft',  // only for development
-      //   starts_with: 'catalog/'
-      // }).then((res) => {
-      //   commit('SET_PRODUCTS', res.data.stories)
-      // })
+      const topCategoriesRes = await this.$storyapi.get('cdn/stories', {
+        version: 'draft',
+        starts_with: 'top-category/'
+      })
+      commit('SET_TOP_CATEGORIES', topCategoriesRes.data.stories.map(category => {
+        return {
+          title: category.content.title,
+          imageUrl: category.content.image
+        }
+      }))
     }
   }
 })

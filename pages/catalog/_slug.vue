@@ -7,7 +7,7 @@
       <div class="product-detail-img">
         <img :src="product.content.ImageMain" :alt="product.slug">
       </div>
-      <div class="product-detail-info">
+      <div class="product-detail-descr">
         <p>{{product.content.Description}}</p>
         <button class="button button--order">Заказать</button>
         <span class="product-detail-props-title">Характеристики:</span>
@@ -54,6 +54,14 @@ export default {
         navigation: {
           nextEl: '.product-swiper-button-next',
           prevEl: '.product-swiper-button-prev'
+        },
+        breakpoints: {
+          992: {
+            slidesPerView: 3
+          },
+          480: {
+            slidesPerView: 2
+          }
         }
       }
     }

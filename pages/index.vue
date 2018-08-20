@@ -8,17 +8,15 @@
       </a>
     </div>
     <section id="element" class="top-categories-container padded clearfix">
-      <nuxt-link tag="div" :to="{ name: 'catalog', params: { category: 'кольца' }}" class="top_categories__item" style="background-image: url('./c1.jpg')">
-        <span class="top-categories__title">кольца</span>
-      </nuxt-link>
-      <nuxt-link tag="div" :to="{ name: 'catalog', params: { category: 'подвески' }}" class="top_categories__item" style="background-image: url('./c2.jpg')">
-        <span class="top-categories__title">подвески</span>
-      </nuxt-link>
-      <nuxt-link tag="div" :to="{ name: 'catalog', params: { category: 'серьги' }}" class="top_categories__item" style="background-image: url('./c3.jpg')">
-        <span class="top-categories__title">серьги</span>
-      </nuxt-link>
-      <nuxt-link tag="div" :to="{ name: 'catalog', params: { category: 'браслеты' }}" class="top_categories__item" style="background-image: url('./c4.jpg')">
-        <span class="top-categories__title">браслеты</span>
+      <nuxt-link
+        v-if="topCategories"
+        tag="div"
+        v-for="(categoryItem, index) in topCategories"
+        :key="index"
+        :to="{ name: 'catalog', params: { category: categoryItem.title}}"
+        :style="{ 'background-image': `url('${categoryItem.imageUrl}')`}"
+        class="top_categories__item">
+          <span class="top-categories__title">{{categoryItem.title}}</span>
       </nuxt-link>
     </section>
 
@@ -35,7 +33,9 @@
       <div class="promo" style="background-image: url(/promo.jpg)">
         <div class="promo-info">
           <h4>подвески на все случаи</h4>
-          <button class="button button--promo">смотреть</button>
+          <nuxt-link tag="button" class="button button--promo" :to="{ name: 'catalog', params: { category: 'подвески'}}">
+            смотреть
+          </nuxt-link>
         </div>
       </div>
     </section>
@@ -85,7 +85,7 @@ export default {
       productSwiperOption: {
         speed: 750,
         loop: true,
-        autoplay: true,
+        autoplay: false,
         slidesPerView: 4,
         spaceBetween: 20,
         pagination: {
@@ -113,7 +113,8 @@ export default {
       return this.$store.getters.getNewProducts
     },
     ...mapState([
-      "heroSlides"
+      'heroSlides',
+      'topCategories'
     ])
   }
 }

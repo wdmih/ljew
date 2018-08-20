@@ -3,31 +3,39 @@
   margin-bottom: 60px;
   font-size: 18px;
   font-weight: 700;
+  &-inner {
+    display: inline-block;
+
+    @include for-tablet-portrait {
+      display: block;
+    }
+  }
 }
 .filter-title {
   text-transform: uppercase;
   letter-spacing: 2.88px;
+  cursor: default;
 }
 .filter-item {
   margin-left: 30px;
   display: inline-block;
   position: relative;
-  cursor: pointer;
   &__current-option {
     text-transform: uppercase;
+    cursor: pointer;
   }
   &__options {
     text-transform: uppercase;
     padding: 10px 0;
     margin: 0;
     position: absolute;
-    z-index: 20;
+    z-index: 200;
     list-style: none;
     text-align: left;
     background:#fff;
     border-radius: 5px;
     box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.4);
-    min-width: 100%;
+    width: 100%;
     top: 100%;
 
     li {

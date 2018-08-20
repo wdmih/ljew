@@ -1,6 +1,6 @@
 <template>
-  <div class="filter-item">
-    <div @click="toggleDd()" v-click-outside="close">
+  <div class="filter-item" v-click-outside="close">
+    <div @click="toggleDd()">
       <span class="filter-item__title">{{title}}</span>
       <span class="filter-item__current-option">
         {{selected ? selected : options[0]}}
@@ -8,7 +8,7 @@
       <i :class="showDd ? 'icon-angle-up' : 'icon-angle-down'"></i>
     </div>
     <transition>
-      <ul class="filter-item__options" v-if="showDd">
+      <ul class="filter-item__options" v-show="showDd">
         <li v-for="(item, index) in options" :key="index" @click="updateSelected(item)">{{item}}</li>
       </ul>
     </transition>

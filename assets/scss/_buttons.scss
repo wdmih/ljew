@@ -20,11 +20,20 @@
   &--promo {
     width: 270px;
     height: 60px;
+    line-height: 50px;
+    text-transform: uppercase;
   }
   &--order {
     width: 270px;
     height: 60px;
+    line-height: 50px;
     text-transform: uppercase;
     margin-bottom: 30px;
+    @include for-tablet-portrait {
+      flex-basis: 35%;
+    }
+    @include for-phone-only {
+      flex-basis: 100%;
+    }
   }
 }
