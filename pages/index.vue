@@ -1,12 +1,11 @@
 <template>
   <section class="page-container">
-    <HeroSlider :slides="heroSlides">
+    <HeroSlider
+      :slides="heroSlides">
     </HeroSlider>
-    <div class="scroll-down-container">
-      <a href="#" v-scroll-to="'#element'">
-        <i class="icon-angle-double-down"></i>
-      </a>
-    </div>
+
+    <ScrollDown/>
+
     <section id="element" class="top-categories-container padded clearfix">
       <nuxt-link
         v-if="topCategories"
@@ -20,7 +19,10 @@
       </nuxt-link>
     </section>
 
-    <ProductSlider v-if="newProducts.length >= 4" :swiperOptions="productSwiperOption" :products="newProducts">
+    <ProductSlider
+      v-if="newProducts.length >= 4"
+      :swiperOptions="productSwiperOption"
+      :products="newProducts">
       <template slot="containerTitle">Новинки</template>
       <template slot="sliderLink">
         <div class="product-swiper-link">
@@ -33,7 +35,10 @@
       <div class="promo" style="background-image: url(/promo.jpg)">
         <div class="promo-info">
           <h4>подвески на все случаи</h4>
-          <nuxt-link tag="button" class="button button--promo" :to="{ name: 'catalog', params: { category: 'подвески'}}">
+          <nuxt-link
+            tag="button"
+            class="button button--promo"
+            :to="{ name: 'catalog', params: { category: 'подвески'}}">
             смотреть
           </nuxt-link>
         </div>
@@ -72,12 +77,15 @@
 
 <script>
 import HeroSlider from '@/components/HeroSlider'
+import ScrollDown from '@/components/ScrollDown'
 import ProductSlider from '@/components/ProductSlider'
+
 import { mapState } from "vuex"
 
 export default {
   components: {
     HeroSlider,
+    ScrollDown,
     ProductSlider
   },
   data() {

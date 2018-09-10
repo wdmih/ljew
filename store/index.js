@@ -28,9 +28,9 @@ const store = () => new Vuex.Store({
     },
     getNewProducts: state => {
       function  filterByDate(item) {
-        let today = new Date()
-        let startDate = new Date(today.getTime() - 30*24*60*60*1000)
-        let itemDate = Date.parse(item.created_at)
+        let today = new Date()  // get current date
+        let startDate = new Date(today.getTime() - 30*24*60*60*1000) // calculate 1 month from current date
+        let itemDate = Date.parse(item.created_at) // get product creation date
         if (itemDate >= startDate) {
           return true
         }

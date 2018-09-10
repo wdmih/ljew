@@ -1,5 +1,6 @@
 <template>
   <section class="page-container">
+    <div class="text-center">{{isSearch}}</div>
     <div class="page-title text-center">
       <h3>{{page.title}}</h3>
     </div>
@@ -37,6 +38,9 @@ export default {
     Product,
     Dropdown
   },
+  props: [
+    'isSearch'
+  ],
   data() {
     return {
       page: {

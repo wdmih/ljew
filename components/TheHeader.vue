@@ -13,23 +13,27 @@
         <li><nuxt-link to="/contacts">контакты</nuxt-link></li>
       </ul>
       <div class="main-search">
-        <button class="icon-search"></button>
+        <button @click="isSearchVisible = !isSearchVisible" class="icon-search"></button>
       </div>
     </nav>
     </transition>
+    <Search @closeSearch="isSearchVisible = $event" :isActive="isSearchVisible"></Search>
   </header>
 </template>
 
 <script>
 import Hamburger from '@/components/Hamburger'
+import Search from '@/components/Search'
 
 export default {
   components: {
-    Hamburger
+    Hamburger,
+    Search
   },
   data() {
     return {
-      isVisible: false
+      isVisible: false,
+      isSearchVisible: false
     }
   },
   methods: {

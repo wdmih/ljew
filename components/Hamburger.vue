@@ -10,9 +10,12 @@
 
 <script>
 export default {
-  props: [
-    'isActive'
-  ]
+  props: {
+    isActive: {
+      type: Boolean,
+      required: true
+    }
+  }
 }
 </script>
 
