@@ -36,4 +36,10 @@
       flex-basis: 100%;
     }
   }
+  &--submit {
+    width: 95%;
+    height: 60px;
+    line-height: 50px;
+    text-transform: uppercase;
+  }
 }

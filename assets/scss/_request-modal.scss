@@ -1,0 +1,122 @@
+.modal-container {
+  position: absolute;
+  top: 20%;
+  z-index: 2000;
+  width: 50%;
+  left: 50%;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+  transform: translateX(-50%);
+  display: flex;
+
+  @include for-desktop {
+    width: 65%;
+  }
+  @include for-phone-only {
+    width: 80%;
+  }
+}
+.modal-deco {
+  width: 230px;
+  background-image: url('../assets/img/modal-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+
+  @include for-tablet-portrait {
+    display: none;
+  }
+}
+.modal-info {
+  padding: 20px;
+  position: relative;
+
+  h3 {
+    text-transform: uppercase;
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+}
+
+.modal-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+.modal-col {
+  flex-basis: 50%;
+  margin-bottom: 20px;
+}
+.modal-row {
+  flex-basis: 100%;
+  &--margin {
+    margin-bottom: 20px;
+  }
+}
+
+.modal-input {
+  label {
+    display: block;
+  }
+  input {
+    width: 90%;
+    height: 40px;
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+    border-bottom: 2px solid $c_main-black;
+
+    &:focus {
+      background: $c_light-gray;
+    }
+  }
+  textarea {
+    width: 95%;
+    height: 100px;
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+    border-bottom: 2px solid $c_main-black;
+    &:focus {
+      background: $c_light-gray;
+    }
+  }
+  p.sub {
+    text-transform: lowercase;
+    padding: 0;
+    margin: 0;
+    font-size: 11px;
+    color: lighten($c_main-black, 50%);
+    font-weight: 400;
+  }
+}
+
+.close-icon {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  opacity: 0.3;
+
+  @include hover {
+    &:hover {
+      opacity: 1;
+    }
+  }
+  &:before, &:after {
+    position: absolute;
+    left: 9px;
+    content: ' ';
+    height: 26px;
+    width: 2px;
+    background-color: #333;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+}

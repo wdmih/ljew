@@ -9,7 +9,7 @@
       </div>
       <div class="product-detail-descr">
         <p>{{product.content.Description}}</p>
-        <button class="button button--order">Заказать</button>
+        <button @click="isModalVisible = true" class="button button--order">Заказать</button>
         <span class="product-detail-props-title">Характеристики:</span>
         <table class="product-detail-props">
           <tbody>
@@ -26,17 +26,20 @@
       :products="products">
       <template slot="containerTitle">Похожие товары</template>
     </ProductSlider>
+    <RequestModal @closeModal="isModalVisible = $event" :isActive="isModalVisible" :product="product"></RequestModal>
   </section>
 </template>
 
 <script>
 import ProductSlider from '@/components/ProductSlider'
+import RequestModal from '@/components/RequestModal'
 
 import {mapState} from 'vuex'
 
 export default {
   components: {
-    ProductSlider
+    ProductSlider,
+    RequestModal
   },
   data() {
     return {
@@ -63,7 +66,8 @@ export default {
             slidesPerView: 2
           }
         }
-      }
+      },
+      isModalVisible: false
     }
   },
   computed: {

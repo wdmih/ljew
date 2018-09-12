@@ -45,7 +45,10 @@ module.exports = {
         }
       }]]
     },
-    vendor: ['babel-polyfill'],
+    vendor: [
+      'babel-polyfill',
+      'axios'
+    ],
     analyze: true,
     /*
     ** PostCSS plugins config
@@ -81,5 +84,8 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  serverMiddleware: [
+    '~/api/index.js'
+  ]
 }
