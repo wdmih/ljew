@@ -20,7 +20,7 @@
           <textarea name="comment" id="comment" placeholder="Ваш комментарий" v-model="emailReqContent.clientComment"></textarea>
         </div>
         <div class="modal-input modal-row">
-          <button class="button button--submit" type="submit">Отправить запрос</button>
+          <button class="button button--submit" @click.prevent="sendEmail" type="submit">Отправить запрос</button>
         </div>
       </form>
       </div>
@@ -57,6 +57,12 @@ export default {
   methods: {
     closeModal() {
       this.$emit('closeModal', false)
+    },
+    async sendEmail() {
+      let data = this.emailReqContent
+      await axios.post('/api/email', data).then(function (res) {
+        console.log(res)
+      })
     }
   },
   directives: {

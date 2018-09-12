@@ -1,8 +1,12 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 const mailer = require('express-mailer')
 
 // Create express instnace
 const app = express()
+
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
 
 mailer.extend(app, {
   from: 'no-reply@le-sia.com.ua',
