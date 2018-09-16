@@ -8,7 +8,8 @@ const store = () => new Vuex.Store({
   state: {
     products: [],
     heroSlides: [],
-    topCategories: []
+    topCategories: [],
+    overlayIsShow: false
   },
 
   mutations: {
@@ -20,6 +21,9 @@ const store = () => new Vuex.Store({
     },
     SET_TOP_CATEGORIES (state, topCategories) {
       state.topCategories = topCategories
+    },
+    SET_OVERLAY (state, overlayIsShow) {
+      state.overlayIsShow = overlayIsShow
     }
   },
   getters: {

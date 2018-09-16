@@ -1,11 +1,17 @@
 <template>
   <transition name="fade">
-    <div v-if="isActive" class="modal-container" v-click-outside="closeModal">
-      <div class="modal-deco"></div>
+    <div v-if="isActive" class="modal-container">
       <div class="modal-info">
         <h3>Связь с продавцом</h3>
         <span @click="closeModal" class="close-icon"></span>
-        <form class="modal-form" action="#">
+        <div v-if="loading" class="spinner-outer">
+          <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
+        <div v-else-if="emailSent" class="success-outer">
+          <h4>Запрос успешно отправлен :)</h4>
+          <p>В ближайшее время с вами свяжется менеджер для уточнения информации.</p>
+        </div>
+        <form v-else class="modal-form" action="#">
         <div class="modal-input modal-col">
           <label for="name">Ваше имя:</label>
           <input name="name" id="name" type="text" placeholder="Анна" required v-model="emailReqContent.clientName" v-focus>
@@ -20,7 +26,7 @@
           <textarea name="comment" id="comment" placeholder="Ваш комментарий" v-model="emailReqContent.clientComment"></textarea>
         </div>
         <div class="modal-input modal-row">
-          <button class="button button--submit" @click.prevent="sendEmail" type="submit">Отправить запрос</button>
+          <button class="button button--submit" @click.prevent="sendEmail" type="submit"><span>Отправить запрос</span></button>
         </div>
       </form>
       </div>
@@ -44,10 +50,12 @@ export default {
   },
   data () {
     return {
+      loading: false,
+      emailSent: false,
       emailReqContent: {
-        clientName: '',
-        clientPhone: '',
-        clientComment: '',
+        clientName: null,
+        clientPhone: null,
+        clientComment: null,
         productName: this.product.content.Title,
         productArticle: this.product.content.Code,
         productPhoto: this.product.content.ImageMain
@@ -57,14 +65,33 @@ export default {
   methods: {
     closeModal() {
       this.$emit('closeModal', false)
+      this.$store.commit('SET_OVERLAY', false)
     },
     async sendEmail() {
       let data = this.emailReqContent
-      await axios.post('/api/email', data).then((res) => {
-        console.log(res)
-      }).catch((res)=> {
-        console.log('error')
-      })
+      if (data.clientName && data.clientPhone) {
+        this.loading = true
+        await axios.post('/api/email', data)
+        .then((res) => {
+          if(res.status = 200){
+            this.loading = false
+            this.emailSent = true
+            console.log(res)
+            setTimeout(() => {
+              this.emailSent = false
+              this.emailReqContent.clientName = null
+              this.emailReqContent.clientPhone = null
+              this.emailReqContent.clientComment = null
+              this.closeModal()
+            }, 2000)
+          }
+        })
+        .catch((res)=> {
+          console.log(res)
+        })
+      } else {
+        alert('Веедите имя и номер телефона')
+      }
     }
   },
   directives: {

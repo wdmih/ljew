@@ -13,11 +13,11 @@
         <li><nuxt-link to="/contacts">контакты</nuxt-link></li>
       </ul>
       <div class="main-search">
-        <button @click="isSearchVisible = !isSearchVisible" class="icon-search"></button>
+        <button @click="toggleSearch" class="icon-search"></button>
       </div>
     </nav>
     </transition>
-    <Search @closeSearch="isSearchVisible = $event" :isActive="isSearchVisible"></Search>
+    <Search @closeSearch="isSearchVisible = $event" :isActive="isSearchVisible"/>
   </header>
 </template>
 
@@ -37,6 +37,10 @@ export default {
     }
   },
   methods: {
+    toggleSearch () {
+      this.isSearchVisible = !this.isSearchVisible
+      this.$store.commit('SET_OVERLAY', this.isSearchVisible)
+    },
     close() {
       this.isVisible = false
     }

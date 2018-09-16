@@ -9,7 +9,7 @@
       </div>
       <div class="product-detail-descr">
         <p>{{product.content.Description}}</p>
-        <button @click="isModalVisible = true" class="button button--order">Заказать</button>
+        <button @click="openModalReq" class="button button--order"><span>Заказать</span></button>
         <span class="product-detail-props-title">Характеристики:</span>
         <table class="product-detail-props">
           <tbody>
@@ -113,6 +113,12 @@ export default {
     ...mapState([
       'products'
     ])
+  },
+  methods: {
+    openModalReq() {
+      this.isModalVisible = true
+      this.$store.commit('SET_OVERLAY', this.isModalVisible)
+    }
   },
   validate ({ params, store }) {
     // Check if `params.slug` is an existing category

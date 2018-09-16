@@ -3,17 +3,25 @@
     <AppHeader/>
     <nuxt/>
     <AppFooter/>
+    <Overlay v-if="overlayIsShow"/>
   </div>
 </template>
 
 <script>
 import AppHeader from '@/components/TheHeader'
 import AppFooter from '@/components/TheFooter'
+import Overlay from '@/components/Overlay'
 
 export default {
   components: {
     AppHeader,
-    AppFooter
+    AppFooter,
+    Overlay
+  },
+  computed: {
+    overlayIsShow() {
+      return this.$store.state.overlayIsShow
+    }
   }
 }
 </script>

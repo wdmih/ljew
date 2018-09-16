@@ -13,6 +13,30 @@
 }
 
 @font-face {
+  font-family: 'Oswald';
+  src: url('../assets/fonts/Oswald/Oswald-Regular.eot');
+  src: url('../assets/fonts/Oswald/Oswald-Regular.woff2') format('woff2'),
+       url('../assets/fonts/Oswald/Oswald-Regular.woff') format('woff'),
+       url('../assets/fonts/Oswald/Oswald-Regular.ttf') format('truetype'),
+       url('../assets/fonts/Oswald/Oswald-Regular.svg#Oswald-Regular') format('svg'),
+       url('../assets/fonts/Oswald/Oswald-Regular.eot?#iefix') format('embedded-opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('../assets/fonts/Oswald/Oswald-Bold.eot');
+  src: url('../assets/fonts/Oswald/Oswald-Bold.woff2') format('woff2'),
+       url('../assets/fonts/Oswald/Oswald-Bold.woff') format('woff'),
+       url('../assets/fonts/Oswald/Oswald-Bold.ttf') format('truetype'),
+       url('../assets/fonts/Oswald/Oswald-Bold.svg#Oswald-Bold') format('svg'),
+       url('../assets/fonts/Oswald/Oswald-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'fontello';
   src: url('../assets/fonts/fontello.eot?24944024');
   src: url('../assets/fonts/fontello.eot?24944024#iefix') format('embedded-opentype'),

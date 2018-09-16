@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mailer = require('express-mailer')
 const path = require('path')
+const config = require('./config/config')
 
 // Create express instnace
 const app = express()
@@ -12,28 +13,27 @@ app.use(bodyParser.json())
 app.set('views', path.join(__dirname, '/views/email_templ'))
 app.set('view engine', 'pug')
 mailer.extend(app, {
-  from: 'no-reply@le-sia.com.ua',
-  host: 'smtp.gmail.com',
-  secureConnection: true,
-  port: 465,
-  transportMethod: 'SMTP',
+  from: config.emailSettings.from,
+  host: config.emailSettings.host,
+  secureConnection: config.emailSettings.secureConnection,
+  port: config.emailSettings.port,
+  transportMethod: config.emailSettings.transportMethod,
   auth: {
-    user: 'vadim.v.ignatenko@gmail.com',
-    pass: 'glutter11'
+    user: config.emailSettings.user,
+    pass: config.emailSettings.pass
   }
 })
 
 app.post('/email', (req, res, next) => {
   if (req.body) {
-    console.log(req.body)
     app.mailer.send('email', {
-      to: 'glutter@ukr.net',
-      subject: 'Test email',
+      to: config.emailSettings.to,
+      subject: config.emailSettings.subject,
       data: req.body
     }, function (err) {
       if (err) {
         console.log(err)
-        res.send('There was an error rendering the email')
+        res.status(500).json({message: 'There was an error rendering the email'}).send(err)
         return
       }
       res.send('Email sent successfully')

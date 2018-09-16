@@ -1,0 +1,13 @@
+{
+  "emailSettings": {
+    "from": "no-reply@le-sia.com.ua",
+    "host": "smtp.gmail.com",
+    "secureConnection": true,
+    "port": 465,
+    "transportMethod": "SMTP",
+    "user": "vadim.v.ignatenko@gmail.com",
+    "pass": "glutter11",
+    "to": "glutter@ukr.net",
+    "subject": "Новый запрос на lesia.com"
+  }
+}

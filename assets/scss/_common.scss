@@ -19,7 +19,7 @@
 }
 
 html {
-  font-family:  'Oswald', sans-serif;
+  font-family:  'Oswald', 'Impact', sans-serif;
   font-size: 14px;
   color: $c_main-black;
 }
@@ -27,17 +27,14 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
 }
 
-#__nuxt,
-#__layout,
 #app {
-  height: 100%;
-}
-#app {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+  position: relative;
 }
 h1, h2, h3, h4, h5, h6 {
   margin: 0;

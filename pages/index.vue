@@ -39,7 +39,7 @@
             tag="button"
             class="button button--promo"
             :to="{ name: 'catalog', params: { category: 'подвески'}}">
-            смотреть
+            <span>смотреть</span>
           </nuxt-link>
         </div>
       </div>

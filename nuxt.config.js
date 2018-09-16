@@ -11,8 +11,7 @@ module.exports = {
       { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Oswald:400,700&amp;subset=cyrillic', type:'text/css'}
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
   /*
@@ -21,12 +20,19 @@ module.exports = {
   loading: { color: '#3B8070' },
 
   modules: [
-    ['storyblok-nuxt', {accessToken: 'aqGFI6G8ymQp0mfUxIAkJQtt', cacheProvider: 'memory'}]
+    ['storyblok-nuxt', {accessToken: 'aqGFI6G8ymQp0mfUxIAkJQtt', cacheProvider: 'memory'}],
+    ['nuxt-mq', {
+      breakpoints: {
+        phone: 481,
+        tabletPortrait: 769,
+        tabletLandscape: 993,
+        desktop: Infinity
+      }
+    }]
   ],
 
   plugins: [
     { src: '~/plugins/vue-swiper.js', ssr: false },
-    { src: '~/plugins/vue-mq.js', ssr: false },
     { src: '~/plugins/vue-scroll-to.js' },
     { src: '~/plugins/vue-click-outside.js', ssr: false }
   ],

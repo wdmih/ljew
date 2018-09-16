@@ -61,6 +61,7 @@ export default {
     closeSearch() {
       this.$emit('closeSearch', false)
       this.searchQuery = null
+      this.$store.commit('SET_OVERLAY', false)
     }
   },
   directives: {
