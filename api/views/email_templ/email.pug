@@ -1,0 +1,11 @@
+html
+  head
+    meta(http-equiv = 'Content-Type', content = 'text/html; charset=UTF-8')
+    title= subject
+    body
+      p Имя, #{data.clientName}.
+      p Телефон, #{data.clientPhone}.
+      p Наименование товара, #{data.productName}.
+      p Артикул товара по сайту, #{data.productArticle}.
+      p Изображение товара, http:#{data.productPhoto}.
+      p Комментарий к заказу, #{data.clientComment}.

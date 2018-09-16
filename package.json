@@ -19,6 +19,7 @@
     "express": "^4.16.3",
     "express-mailer": "^0.3.1",
     "nuxt": "^1.4.2",
+    "pug": "^2.0.3",
     "storyblok-nuxt": "0.0.9",
     "v-click-outside": "^2.0.1",
     "vue-awesome-swiper": "^3.1.3",

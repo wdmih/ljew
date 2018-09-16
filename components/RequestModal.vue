@@ -60,8 +60,10 @@ export default {
     },
     async sendEmail() {
       let data = this.emailReqContent
-      await axios.post('/api/email', data).then(function (res) {
+      await axios.post('/api/email', data).then((res) => {
         console.log(res)
+      }).catch((res)=> {
+        console.log('error')
       })
     }
   },
