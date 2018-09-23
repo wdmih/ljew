@@ -2,8 +2,11 @@
   <div class="hero-container">
     <div class="hero-container-inner" v-swiper:heroSwiper="heroSwiperOption">
       <div class="hero-slider swiper-wrapper">
-        <div class="hero-slider__item swiper-slide" v-for="(slide, index) in slides" :key="index">
+        <!-- <div class="hero-slider__item swiper-slide" v-for="(slide, index) in slides" :key="index">
           <img :src="slide.slideUrl" :alt="slide.slideAlt" width="1306" height="539">
+        </div> -->
+        <div class="hero-slider__item swiper-slide" v-for="(slide, index) in slides" :key="index" :style="{ 'background-image': 'url(' + slide.slideUrl + ')' }">
+
         </div>
       </div>
       <div class="hero-swiper-pagination"></div>

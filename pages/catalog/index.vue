@@ -34,6 +34,12 @@ import Dropdown from '@/components/Dropdown'
 import { mapState } from 'vuex'
 
 export default {
+  head ()  {
+    return {
+      title: this.page.title,
+      titleTemplate: 'LeSia::%s'
+    }
+  },
   components: {
     Product,
     Dropdown

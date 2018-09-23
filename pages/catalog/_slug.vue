@@ -22,8 +22,9 @@
       </div>
     </section>
     <ProductSlider
+      v-if="similarProducts.length >= 4"
       :swiperOptions="productSwiperOption"
-      :products="products">
+      :products="similarProducts">
       <template slot="containerTitle">Похожие товары</template>
     </ProductSlider>
     <RequestModal @closeModal="isModalVisible = $event" :isActive="isModalVisible" :product="product"></RequestModal>
@@ -37,6 +38,15 @@ import RequestModal from '@/components/RequestModal'
 import {mapState} from 'vuex'
 
 export default {
+  head ()  {
+    return {
+      title: this.product.content.Title,
+      titleTemplate: 'LeSia::%s',
+      meta: [
+          { vmid: 'description', name: 'description', content: this.product.content.Description }
+        ]
+    }
+  },
   components: {
     ProductSlider,
     RequestModal
@@ -110,9 +120,12 @@ export default {
     product () {
       return this.$store.getters.getProductBySlug(this.$route.params.slug)
     },
-    ...mapState([
-      'products'
-    ])
+    // ...mapState([
+    //   'products'
+    // ])
+    similarProducts () {
+      return this.$store.getters.getSimilarProducts(this.product)
+    }
   },
   methods: {
     openModalReq() {

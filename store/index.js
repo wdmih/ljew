@@ -9,6 +9,7 @@ const store = () => new Vuex.Store({
     products: [],
     heroSlides: [],
     topCategories: [],
+    testimonials: [],
     overlayIsShow: false
   },
 
@@ -21,6 +22,9 @@ const store = () => new Vuex.Store({
     },
     SET_TOP_CATEGORIES (state, topCategories) {
       state.topCategories = topCategories
+    },
+    SET_TESTIMONIALS (state, testimonials) {
+      state.testimonials = testimonials
     },
     SET_OVERLAY (state, overlayIsShow) {
       state.overlayIsShow = overlayIsShow
@@ -41,6 +45,15 @@ const store = () => new Vuex.Store({
       }
       let arrByDate = state.products.filter(filterByDate)
       return arrByDate
+    },
+    getSimilarProducts: state => product=> {
+      function findSimilar(item) {
+        if(item.content.TypeOfProduct == product.content.TypeOfProduct && item.id != product.id){
+          return true
+        }
+      }
+      let similarProducts = state.products.filter(findSimilar)
+      return similarProducts
     }
   },
   actions: {
@@ -70,6 +83,17 @@ const store = () => new Vuex.Store({
         return {
           title: category.content.title,
           imageUrl: category.content.image
+        }
+      }))
+
+      const testimonialsRes = await this.$storyapi.get('cdn/stories', {
+        version: 'draft',
+        starts_with: 'testimonials/'
+      })
+      commit('SET_TESTIMONIALS', testimonialsRes.data.stories.map(testimonial => {
+        return {
+          author: testimonial.content.author,
+          data: testimonial.content.data
         }
       }))
     }

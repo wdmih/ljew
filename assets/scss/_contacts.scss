@@ -1,0 +1,19 @@
+.contacts-image {
+  background-image: url('~/assets/img/contacts.jpg');
+  height: 30vh;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+.contacts-info {
+  text-align: center;
+  p {
+
+  }
+  ul {
+    list-style: none;
+  }
+}
+.contacts-title {
+  text-transform: uppercase;
+  font-weight: 700;
+}

@@ -1,11 +1,19 @@
 .hero-container {
   width: 100%;
   position: relative;
-
+  height: calc(100vh - 190px);
+  @include for-tablet-portrait {
+    height: calc(100vh - 265px);
+  }
+  @include for-phone-only {
+    height: calc(100vh - 172px);
+    margin-bottom: 60px;
+  }
   &-inner {
     width: calc(100% - 60px);
     margin-left: 60px;
     position: relative;
+    height: 100%;
 
     @include for-tablet-portrait {
       width: 100%;
@@ -26,14 +34,15 @@
 
 .hero-slider {
   overflow: hidden;
+  height: 100%;
   &__item {
     position: relative;
-
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
+    background-size: cover;
+    // img {
+    //   display: block;
+    //   width: 100%;
+    //   height: auto;
+    // }
   }
 }
 .slide-item-info {

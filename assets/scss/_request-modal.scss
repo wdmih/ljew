@@ -37,6 +37,9 @@
 .modal-col {
   flex-basis: calc(50% - 20px);
   margin-bottom: 20px;
+  @include for-phone-only {
+    flex-basis: 100%;
+  }
 }
 .modal-row {
   flex-basis: 100%;
@@ -130,4 +133,8 @@
     color: #11e261;
   }
 
+}
+.input-error {
+  font-size: 10px;
+  color: red;
 }

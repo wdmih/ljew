@@ -15,11 +15,13 @@
         <div class="modal-input modal-col">
           <label for="name">Ваше имя:</label>
           <input name="name" id="name" type="text" placeholder="Анна" required v-model="emailReqContent.clientName" v-focus>
+          <span v-show="errors.nameError" class="input-error">Введите имя</span>
         </div>
         <div class="modal-input modal-col">
           <label for="phone">Ваш телефон:</label>
           <input name="phone" id="phone" type="text" placeholder="099 123 45 67" v-model="emailReqContent.clientPhone" required>
           <p class="sub">Для того чтобы продавец мог с Вами связаться</p>
+          <span v-show="errors.phoneError" class="input-error">Введите телефон</span>
         </div>
         <div class="modal-input modal-row modal-row--margin">
           <label for="comment">Комментарии:</label>
@@ -59,6 +61,10 @@ export default {
         productName: this.product.content.Title,
         productArticle: this.product.content.Code,
         productPhoto: this.product.content.ImageMain
+      },
+      errors: {
+        nameError: null,
+        phoneError: null
       }
     }
   },
@@ -67,9 +73,24 @@ export default {
       this.$emit('closeModal', false)
       this.$store.commit('SET_OVERLAY', false)
     },
+    checkForm() {
+      if(this.emailReqContent.clientName && this.emailReqContent.clientPhone) {
+        return true
+      }
+      this.errors = {
+        nameError: null,
+        phoneError: null
+      }
+      if(!this.emailReqContent.clientName) {
+        this.errors.nameError = true
+      }
+      if(!this.emailReqContent.clientPhone) {
+        this.errors.phoneError = true
+      }
+    },
     async sendEmail() {
       let data = this.emailReqContent
-      if (data.clientName && data.clientPhone) {
+      if (this.checkForm()) {
         this.loading = true
         await axios.post('/api/email', data)
         .then((res) => {
@@ -89,8 +110,6 @@ export default {
         .catch((res)=> {
           console.log(res)
         })
-      } else {
-        alert('Веедите имя и номер телефона')
       }
     }
   },

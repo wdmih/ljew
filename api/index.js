@@ -1,5 +1,4 @@
 const express = require('express')
-const bodyParser = require('body-parser')
 const mailer = require('express-mailer')
 const path = require('path')
 const config = require('./config/config')
@@ -7,8 +6,7 @@ const config = require('./config/config')
 // Create express instnace
 const app = express()
 
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
+app.use(express.json())
 
 app.set('views', path.join(__dirname, '/views/email_templ'))
 app.set('view engine', 'pug')

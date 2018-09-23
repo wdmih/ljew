@@ -18,13 +18,11 @@
   zoom: 1; /* ie 6/7 */
 }
 
-html {
+html,
+body {
   font-family:  'Oswald', 'Impact', sans-serif;
   font-size: 14px;
   color: $c_main-black;
-}
-html,
-body {
   margin: 0;
   padding: 0;
 }
