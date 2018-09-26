@@ -22,7 +22,12 @@ export default {
     overlayIsShow() {
       return this.$store.state.overlayIsShow
     }
-  }
+  },
+  watch: {
+    $route () {
+      this.$store.commit('SET_OVERLAY', false)
+    }
+  },
 }
 </script>
 

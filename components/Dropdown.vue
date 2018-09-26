@@ -7,7 +7,7 @@
       </span>
       <i :class="showDd ? 'icon-angle-up' : 'icon-angle-down'"></i>
     </div>
-    <transition>
+    <transition name="fade">
       <ul class="filter-item__options" v-show="showDd">
         <li v-for="(item, index) in options" :key="index" @click="updateSelected(item)">{{item}}</li>
       </ul>

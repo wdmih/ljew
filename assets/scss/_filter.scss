@@ -9,12 +9,21 @@
     @include for-tablet-portrait {
       display: block;
     }
+    @include for-phone-only {
+      display: flex;
+      flex-direction: column;
+      text-align: initial;
+      align-items: center;
+    }
   }
 }
 .filter-title {
   text-transform: uppercase;
   letter-spacing: 2.88px;
   cursor: default;
+  @include for-tablet-portrait {
+    display: none;
+  }
 }
 .filter-item {
   margin-left: 30px;
@@ -49,5 +58,9 @@
         }
       }
     }
+  }
+  @include for-phone-only {
+    margin: 0;
+    padding: 3px 0;
   }
 }
