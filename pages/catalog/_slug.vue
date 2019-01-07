@@ -120,9 +120,6 @@ export default {
     product () {
       return this.$store.getters.getProductBySlug(this.$route.params.slug)
     },
-    // ...mapState([
-    //   'products'
-    // ])
     similarProducts () {
       return this.$store.getters.getSimilarProducts(this.product)
     }
