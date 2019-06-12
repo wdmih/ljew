@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div v-if="isActive" class="modal-container">
+    <div v-if="isActive" class="modal-container" v-click-outside="closeModal">
       <div class="modal-info">
         <h3>Связь с продавцом</h3>
         <span @click="closeModal" class="close-icon"></span>

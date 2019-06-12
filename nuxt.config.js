@@ -41,40 +41,29 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    babel: {
-      presets: [['vue-app', {
-        useBuiltIns: true,
-        targets: {
-          ie: 9, uglify: true
-        }
-      }]]
-    },
-    vendor: [
-      'babel-polyfill',
-      'axios'
-    ],
     analyze: true,
     /*
     ** PostCSS plugins config
     */
-    postcss: [
-      require('autoprefixer')({
-        browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4']
-      }),
-      require('cssnano')({
-        preset: 'default',
-      }),
-      require('postcss-pxtorem')({
-        rootValue: 14,
-        unitPrecision: 5,
-        propList: ['font', 'font-size', 'line-height', 'letter-spacing'],
-        selectorBlackList: [],
-        replace: true,
-        mediaQuery: false,
-        minPixelValue: 0
-      })
-    ],
-
+    postcss: {
+      plugins: {
+        'cssnano': {
+          preset: 'default'
+        },
+        'postcss-pxtorem': {
+          rootValue: 14,
+          unitPrecision: 5,
+          propList: ['font', 'font-size', 'line-height', 'letter-spacing'],
+          selectorBlackList: [],
+          replace: true,
+          mediaQuery: false,
+          minPixelValue: 0
+        }
+      },
+      preset: {
+        autoprefixer: {}
+      }
+    },
     /*
     ** Run ESLint on save
     */

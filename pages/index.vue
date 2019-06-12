@@ -8,16 +8,17 @@
     <ScrollDown/>
 
     <section id="element" class="top-categories-container padded clearfix">
-      <nuxt-link
-        v-if="topCategories"
-        tag="div"
-        v-for="(categoryItem, index) in topCategories"
-        :key="index"
-        :to="{ name: 'catalog', params: { category: categoryItem.title}}"
-        :style="{ 'background-image': `url('${categoryItem.imageUrl}')`}"
-        class="top_categories__item">
+      <slot v-if="topCategories">
+        <nuxt-link
+          tag="div"
+          v-for="(categoryItem, index) in topCategories"
+          :key="index"
+          :to="{ name: 'catalog', params: { category: categoryItem.title}}"
+          :style="{ 'background-image': `url('${categoryItem.imageUrl}')`}"
+          class="top_categories__item">
           <span class="top-categories__title">{{categoryItem.title}}</span>
-      </nuxt-link>
+        </nuxt-link>
+      </slot>
     </section>
 
     <ProductSlider

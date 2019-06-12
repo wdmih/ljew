@@ -5,9 +5,9 @@
     "secureConnection": true,
     "port": 465,
     "transportMethod": "SMTP",
-    "user": "vadim.v.ignatenko@gmail.com",
-    "pass": "glutter11",
-    "to": "glutter@ukr.net",
+    "user": "gmail account",
+    "pass": "gmail account pass",
+    "to": "mail to",
     "subject": "Новый запрос на lesia.com"
   }
 }

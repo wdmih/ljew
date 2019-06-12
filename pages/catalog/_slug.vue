@@ -13,10 +13,12 @@
         <span class="product-detail-props-title">Характеристики:</span>
         <table class="product-detail-props">
           <tbody>
-            <tr v-if="property.value" v-for="(property, index) in properties" :key="index">
-              <td>{{property.name}}</td>
-              <td>{{property.value}}</td>
-            </tr>
+            <slot v-for="(property, index) in properties" >
+              <tr v-if="property.value" :key="index">
+                <td>{{property.name}}</td>
+                <td>{{property.value}}</td>
+              </tr>
+            </slot>
           </tbody>
         </table>
       </div>
