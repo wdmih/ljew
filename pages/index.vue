@@ -46,7 +46,6 @@
         </div>
       </div>
     </section>
-
     <section class="testimonials-container padded">
       <ul class="testimonials">
         <li class="testimonials-item" v-for="(testimonial, index) in testimonials" :key="index">
